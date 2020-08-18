@@ -3,7 +3,7 @@ from django.contrib import admin
 
 # Register your models here.
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from .models import User, PhoneOTP, Payment
+from .models import User, PhoneOTP, Payment, DiscountCode
 from django.contrib.auth.models import Group
 
 
@@ -88,6 +88,7 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(User)
 admin.site.register(PhoneOTP)
 admin.site.register(Payment)
+admin.site.register(DiscountCode)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
 admin.site.unregister(Group)

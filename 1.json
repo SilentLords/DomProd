@@ -5,38 +5,33 @@
         "@xsi:type": "ns1:ArrayOfHouseAdditionalEquipment"
     },
     "additional_info": {
-        "#text": "\u043d\u0435\u0442",
-        "@xsi:type": "xsd:string"
+        "@xsi:nil": "true"
     },
     "alarm_info": {
         "@xsi:nil": "true"
     },
     "area_basement": {
-        "#text": "1799.20",
-        "@xsi:type": "ns1:Decimal152"
+        "@xsi:nil": "true"
     },
     "area_common_property": {
-        "#text": "1316.50",
-        "@xsi:type": "ns1:Decimal152"
+        "@xsi:nil": "true"
     },
     "area_land": {
-        "#text": "8217.80",
-        "@xsi:type": "ns1:Decimal152"
+        "@xsi:nil": "true"
     },
     "area_non_residential": {
-        "#text": "285.50",
-        "@xsi:type": "ns1:Decimal152"
+        "@xsi:nil": "true"
     },
     "area_residential": {
-        "#text": "8776.50",
+        "#text": "21642.00",
         "@xsi:type": "ns1:Decimal152"
     },
     "area_total": {
-        "#text": "15821.00",
+        "#text": "21642.40",
         "@xsi:type": "ns1:Decimal152"
     },
     "built_year": {
-        "#text": "2007",
+        "#text": "1996",
         "@xsi:type": "xsd:int"
     },
     "cadastral_numbers": {
@@ -44,11 +39,10 @@
         "@xsi:type": "ns1:ArrayOfHouseCadastralNumber"
     },
     "chute_count": {
-        "#text": "5",
-        "@xsi:type": "xsd:int"
+        "@xsi:nil": "true"
     },
     "chute_type": {
-        "#text": "3",
+        "#text": "1",
         "@xsi:type": "ns1:HouseChuteTypeEnum"
     },
     "cold_water_type": {
@@ -56,198 +50,30 @@
         "@xsi:type": "ns1:HouseColdWaterTypeEnum"
     },
     "common_meetings": {
-        "@SOAP-ENC:arrayType": "ns1:HouseCommonMeeting[0]",
-        "@xsi:type": "ns1:ArrayOfHouseCommonMeeting"
+        "@SOAP-ENC:arrayType": "ns1:HouseCommonMeeting[1]",
+        "@xsi:type": "ns1:ArrayOfHouseCommonMeeting",
+        "item": {
+            "@xsi:type": "ns1:HouseCommonMeeting",
+            "id": {
+                "#text": "399961",
+                "@xsi:type": "xsd:int"
+            },
+            "protocol_date": {
+                "#text": "2015-04-14",
+                "@xsi:type": "xsd:date"
+            },
+            "protocol_file_id": {
+                "@xsi:nil": "true"
+            },
+            "protocol_number": {
+                "#text": "3",
+                "@xsi:type": "xsd:string"
+            }
+        }
     },
     "common_properties": {
-        "@SOAP-ENC:arrayType": "ns1:HouseCommonProperty[4]",
-        "@xsi:type": "ns1:ArrayOfHouseCommonProperty",
-        "item": [
-            {
-                "@xsi:type": "ns1:HouseCommonProperty",
-                "area": {
-                    "#text": "1316.50",
-                    "@xsi:type": "ns1:Decimal152"
-                },
-                "function": {
-                    "#text": "\u041f\u043e\u0434\u044a\u0435\u0437\u0434",
-                    "@xsi:type": "xsd:string"
-                },
-                "id": {
-                    "#text": "272826",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "\u041f\u043e\u0434\u044a\u0435\u0437\u0434",
-                    "@xsi:type": "xsd:string"
-                },
-                "rent": {
-                    "@xsi:type": "ns1:HouseCommonPropertyRent",
-                    "common_meeting_protocol_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "common_meeting_protocol_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_start_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "cost_per_month": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_inn": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_name": {
-                        "@xsi:nil": "true"
-                    }
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseCommonProperty",
-                "area": {
-                    "#text": "1799.20",
-                    "@xsi:type": "ns1:Decimal152"
-                },
-                "function": {
-                    "#text": "\u041f\u043e\u0434\u0432\u0430\u043b",
-                    "@xsi:type": "xsd:string"
-                },
-                "id": {
-                    "#text": "272828",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "\u041f\u043e\u0434\u0432\u0430\u043b",
-                    "@xsi:type": "xsd:string"
-                },
-                "rent": {
-                    "@xsi:type": "ns1:HouseCommonPropertyRent",
-                    "common_meeting_protocol_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "common_meeting_protocol_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_start_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "cost_per_month": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_inn": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_name": {
-                        "@xsi:nil": "true"
-                    }
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseCommonProperty",
-                "area": {
-                    "#text": "1819.20",
-                    "@xsi:type": "ns1:Decimal152"
-                },
-                "function": {
-                    "#text": "\u0422\u0435\u0445.\u044d\u0442\u0430\u0436",
-                    "@xsi:type": "xsd:string"
-                },
-                "id": {
-                    "#text": "272837",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "\u0422\u0435\u0445.\u044d\u0442\u0430\u0436",
-                    "@xsi:type": "xsd:string"
-                },
-                "rent": {
-                    "@xsi:type": "ns1:HouseCommonPropertyRent",
-                    "common_meeting_protocol_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "common_meeting_protocol_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_start_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "cost_per_month": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_inn": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_name": {
-                        "@xsi:nil": "true"
-                    }
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseCommonProperty",
-                "area": {
-                    "#text": "1849.20",
-                    "@xsi:type": "ns1:Decimal152"
-                },
-                "function": {
-                    "#text": "\u041a\u0440\u044b\u0448\u0430",
-                    "@xsi:type": "xsd:string"
-                },
-                "id": {
-                    "#text": "272838",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "\u041a\u0440\u044b\u0448\u0430",
-                    "@xsi:type": "xsd:string"
-                },
-                "rent": {
-                    "@xsi:type": "ns1:HouseCommonPropertyRent",
-                    "common_meeting_protocol_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "common_meeting_protocol_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_number": {
-                        "@xsi:nil": "true"
-                    },
-                    "contract_start_date": {
-                        "@xsi:nil": "true"
-                    },
-                    "cost_per_month": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_inn": {
-                        "@xsi:nil": "true"
-                    },
-                    "provider_name": {
-                        "@xsi:nil": "true"
-                    }
-                }
-            }
-        ]
+        "@SOAP-ENC:arrayType": "ns1:HouseCommonProperty[0]",
+        "@xsi:type": "ns1:ArrayOfHouseCommonProperty"
     },
     "communal_services": {
         "@SOAP-ENC:arrayType": "ns1:HouseCommunalService[6]",
@@ -256,8 +82,7 @@
             {
                 "@xsi:type": "ns1:HouseCommunalService",
                 "consumption_norm": {
-                    "#text": "0.02630",
-                    "@xsi:type": "ns1:Decimal175"
+                    "@xsi:nil": "true"
                 },
                 "consumption_norm_additional_info": {
                     "@xsi:nil": "true"
@@ -272,52 +97,30 @@
                     "@xsi:nil": "true"
                 },
                 "consumption_norm_unit_of_measurement": {
-                    "#text": "6",
-                    "@xsi:type": "ns1:UnitOfMeasureEnum"
+                    "@xsi:nil": "true"
                 },
                 "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[2]",
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[1]",
                     "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
-                    "item": [
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "3772399",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "717.860",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2016-01-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "36",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                    "item": {
+                        "@xsi:type": "ns1:HouseCommunalServiceCost",
+                        "id": {
+                            "#text": "1468027",
+                            "@xsi:type": "xsd:int"
                         },
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "2532104",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "717.860",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2015-07-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "36",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                        "tariff": {
+                            "#text": "1318.730",
+                            "@xsi:type": "ns1:Decimal153"
+                        },
+                        "tariff_start_date": {
+                            "#text": "2015-07-01",
+                            "@xsi:type": "xsd:date"
+                        },
+                        "unit_of_measurement": {
+                            "#text": "5",
+                            "@xsi:type": "ns1:UnitOfMeasureEnum"
                         }
-                    ]
+                    }
                 },
                 "date_stop": {
                     "@xsi:nil": "true"
@@ -327,7 +130,7 @@
                     "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
                 },
                 "id": {
-                    "#text": "3290059",
+                    "#text": "3404017",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -335,50 +138,27 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "legal_act_of_tariff_date": {
-                    "#text": "2013-12-20",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_number": {
-                    "#text": "691/01-05-\u041e\u0421",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_org_name": {
-                    "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "normative_acts": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct",
-                    "item": {
-                        "@xsi:type": "ns1:HouseCommunalServiceNormativeAct",
-                        "document_date": {
-                            "#text": "2012-08-20",
-                            "@xsi:type": "xsd:date"
-                        },
-                        "document_number": {
-                            "#text": "185/01-05-\u043e\u0441",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "document_organization_name": {
-                            "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "id": {
-                            "#text": "2051974",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[0]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct"
                 },
                 "provider_additional_info": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "provider_inn": {
-                    "#text": "7203203418",
+                    "#text": "7203243499",
                     "@xsi:type": "xsd:string"
                 },
                 "provider_name": {
-                    "#text": "\u041e\u0410\u041e \"\u0423\u0440\u0430\u043b\u044c\u0441\u043a\u0430\u044f \u0442\u0435\u043f\u043b\u043e\u0441\u0435\u0442\u0435\u0432\u0430\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\"",
+                    "#text": "\"\u0422\u0435\u043f\u043b\u043e \u0422\u044e\u043c\u0435\u043d\u0438\" \u041f\u0410\u041e \u0421\u0443\u044d\u043d\u043a\u043e",
                     "@xsi:type": "xsd:string"
                 },
                 "service_method": {
@@ -396,20 +176,18 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "supply_contract_date": {
-                    "#text": "2008-04-22",
+                    "#text": "2013-09-30",
                     "@xsi:type": "xsd:date"
                 },
                 "supply_contract_number": {
-                    "#text": "\u0422-6496",
+                    "#text": "\u0422-56537",
                     "@xsi:type": "xsd:string"
                 },
                 "tariff_description": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "tariff_description_file_id": {
-                    "#text": "13347516",
-                    "@xsi:type": "xsd:int"
+                    "@xsi:nil": "true"
                 },
                 "type": {
                     "#text": "5",
@@ -418,36 +196,28 @@
                 "volumes_report": {
                     "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
                     "accrued_consumer": {
-                        "#text": "1545680.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "arrear_to_supplier_amount": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "cash_to_provider_payment": {
-                        "#text": "1545680.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "consumer_arrears": {
-                        "#text": "303824.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_by_consumers_amount": {
-                        "#text": "1525011.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_to_supplier_amount": {
-                        "#text": "1545680.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_penalties": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_volume": {
-                        "#text": "2189.14",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "unit_of_measurement": {
                         "#text": "5",
@@ -458,8 +228,7 @@
             {
                 "@xsi:type": "ns1:HouseCommunalService",
                 "consumption_norm": {
-                    "#text": "1.71000",
-                    "@xsi:type": "ns1:Decimal175"
+                    "@xsi:nil": "true"
                 },
                 "consumption_norm_additional_info": {
                     "@xsi:nil": "true"
@@ -474,52 +243,30 @@
                     "@xsi:nil": "true"
                 },
                 "consumption_norm_unit_of_measurement": {
-                    "#text": "31",
-                    "@xsi:type": "ns1:UnitOfMeasureEnum"
+                    "@xsi:nil": "true"
                 },
                 "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[2]",
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[1]",
                     "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
-                    "item": [
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "3776969",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "1.740",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2016-01-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "37",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                    "item": {
+                        "@xsi:type": "ns1:HouseCommunalServiceCost",
+                        "id": {
+                            "#text": "1468034",
+                            "@xsi:type": "xsd:int"
                         },
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "2532111",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "1.740",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2015-07-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "37",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                        "tariff": {
+                            "#text": "1.710",
+                            "@xsi:type": "ns1:Decimal153"
+                        },
+                        "tariff_start_date": {
+                            "#text": "2015-07-01",
+                            "@xsi:type": "xsd:date"
+                        },
+                        "unit_of_measurement": {
+                            "#text": "20",
+                            "@xsi:type": "ns1:UnitOfMeasureEnum"
                         }
-                    ]
+                    }
                 },
                 "date_stop": {
                     "@xsi:nil": "true"
@@ -529,7 +276,7 @@
                     "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
                 },
                 "id": {
-                    "#text": "3290060",
+                    "#text": "3404018",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -537,50 +284,27 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "legal_act_of_tariff_date": {
-                    "#text": "2014-12-19",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_number": {
-                    "#text": "103",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_org_name": {
-                    "#text": "\u0420\u0435\u0448\u0435\u043d\u0438\u0435 \u0420\u042d\u041a",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "normative_acts": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct",
-                    "item": {
-                        "@xsi:type": "ns1:HouseCommunalServiceNormativeAct",
-                        "document_date": {
-                            "#text": "2012-08-20",
-                            "@xsi:type": "xsd:date"
-                        },
-                        "document_number": {
-                            "#text": "183/01-05-\u043e\u0441",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "document_organization_name": {
-                            "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "id": {
-                            "#text": "2052097",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[0]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct"
                 },
                 "provider_additional_info": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "provider_inn": {
-                    "#text": "8602067215",
+                    "#text": "7705424509",
                     "@xsi:type": "xsd:string"
                 },
                 "provider_name": {
-                    "#text": "\u041e\u0410\u041e \"\u0422\u044e\u043c\u0435\u043d\u0441\u043a\u0430\u044f \u042d\u043d\u0435\u0440\u0433\u043e\u0441\u0431\u044b\u0442\u043e\u0432\u0430\u044f \u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\"",
+                    "#text": "\u0422\u044e\u043c\u0435\u043d\u044c\u044d\u043d\u0435\u0440\u0433\u043e\u0441\u0431\u044b\u0442",
                     "@xsi:type": "xsd:string"
                 },
                 "service_method": {
@@ -598,20 +322,18 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "supply_contract_date": {
-                    "#text": "2014-08-01",
+                    "#text": "2006-12-19",
                     "@xsi:type": "xsd:date"
                 },
                 "supply_contract_number": {
-                    "#text": "14445",
+                    "#text": "1943",
                     "@xsi:type": "xsd:string"
                 },
                 "tariff_description": {
-                    "#text": "\u041f\u0440\u0438 \u0434\u0432\u0443\u0445 \u0442\u0430\u0440\u0438\u0444\u043d\u043e\u043c \u0418\u041f\u0423 \u041f\u0438\u043a\u043e\u0432\u0430\u044f \u0437\u043e\u043d\u0430 (\u0434\u0435\u043d\u044c): 1-74, \u041d\u043e\u0447\u043d\u0430\u044f \u0437\u043e\u043d\u0430 : 0-87",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "tariff_description_file_id": {
-                    "#text": "13347854",
-                    "@xsi:type": "xsd:int"
+                    "@xsi:nil": "true"
                 },
                 "type": {
                     "#text": "4",
@@ -620,36 +342,28 @@
                 "volumes_report": {
                     "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
                     "accrued_consumer": {
-                        "#text": "997463.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "arrear_to_supplier_amount": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "cash_to_provider_payment": {
-                        "#text": "997463.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "consumer_arrears": {
-                        "#text": "83010.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_by_consumers_amount": {
-                        "#text": "914453.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_to_supplier_amount": {
-                        "#text": "997463.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_penalties": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_volume": {
-                        "#text": "637946.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "unit_of_measurement": {
                         "#text": "20",
@@ -685,11 +399,10 @@
                     "@xsi:nil": "true"
                 },
                 "filling_fact": {
-                    "#text": "2",
-                    "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
+                    "@xsi:nil": "true"
                 },
                 "id": {
-                    "#text": "3290061",
+                    "#text": "3404019",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -748,217 +461,40 @@
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "volumes_report": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseCommunalService",
-                "consumption_norm": {
-                    "#text": "3.80000",
-                    "@xsi:type": "ns1:Decimal175"
-                },
-                "consumption_norm_additional_info": {
-                    "#text": "0,052 \u0413\u043a\u0430\u043b \u043d\u043e\u0440\u043c\u0430\u0442\u0438\u0432 \u043f\u043e\u0434\u043e\u0433\u0440\u0435\u0432\u0430 1 \u043a\u0443\u0431. \u043c \u0432\u043e\u0434\u044b",
-                    "@xsi:type": "xsd:string"
-                },
-                "consumption_norm_on_common_needs": {
-                    "@xsi:nil": "true"
-                },
-                "consumption_norm_on_common_needs_additional_info": {
-                    "@xsi:nil": "true"
-                },
-                "consumption_norm_on_common_needs_unit_of_measurement": {
-                    "@xsi:nil": "true"
-                },
-                "consumption_norm_unit_of_measurement": {
-                    "#text": "4",
-                    "@xsi:type": "ns1:UnitOfMeasureEnum"
-                },
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[2]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
-                    "item": [
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "3778630",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "717.860",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2016-01-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "36",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        },
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "2532117",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "717.860",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2015-07-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "36",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    ]
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "filling_fact": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
-                },
-                "id": {
-                    "#text": "3290062",
-                    "@xsi:type": "xsd:int"
-                },
-                "is_default": {
-                    "#text": "true",
-                    "@xsi:type": "xsd:boolean"
-                },
-                "legal_act_of_tariff_date": {
-                    "#text": "2013-12-20",
-                    "@xsi:type": "xsd:date"
-                },
-                "legal_act_of_tariff_number": {
-                    "#text": "691/01-05-\u041e\u0421",
-                    "@xsi:type": "xsd:string"
-                },
-                "legal_act_of_tariff_org_name": {
-                    "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                    "@xsi:type": "xsd:string"
-                },
-                "normative_acts": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct",
-                    "item": {
-                        "@xsi:type": "ns1:HouseCommunalServiceNormativeAct",
-                        "document_date": {
-                            "#text": "2012-08-20",
-                            "@xsi:type": "xsd:date"
-                        },
-                        "document_number": {
-                            "#text": "182/01-05-\u043e\u0441",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "document_organization_name": {
-                            "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "id": {
-                            "#text": "2052185",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "provider_additional_info": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
-                },
-                "provider_inn": {
-                    "#text": "7203203418",
-                    "@xsi:type": "xsd:string"
-                },
-                "provider_name": {
-                    "#text": "\u041e\u0410\u041e \"\u0423\u0440\u0430\u043b\u044c\u0441\u043a\u0430\u044f \u0442\u0435\u043f\u043b\u043e\u0441\u0435\u0442\u0435\u0432\u0430\u044f \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\"",
-                    "@xsi:type": "xsd:string"
-                },
-                "service_method": {
-                    "#text": "2",
-                    "@xsi:type": "ns1:CommunalServiceMethodEnum"
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                },
-                "supplied_via_management_organization": {
-                    "#text": "false",
-                    "@xsi:type": "xsd:boolean"
-                },
-                "supply_contract_date": {
-                    "#text": "2008-04-22",
-                    "@xsi:type": "xsd:date"
-                },
-                "supply_contract_number": {
-                    "#text": "\u0422-6496",
-                    "@xsi:type": "xsd:string"
-                },
-                "tariff_description": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
-                },
-                "tariff_description_file_id": {
-                    "#text": "13348089",
-                    "@xsi:type": "xsd:int"
-                },
-                "type": {
-                    "#text": "2",
-                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
-                },
-                "volumes_report": {
                     "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
                     "accrued_consumer": {
-                        "#text": "440723.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "arrear_to_supplier_amount": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "cash_to_provider_payment": {
-                        "#text": "440723.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "consumer_arrears": {
-                        "#text": "69410.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_by_consumers_amount": {
-                        "#text": "417976.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_to_supplier_amount": {
-                        "#text": "440723.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_penalties": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_volume": {
-                        "#text": "564.47",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "unit_of_measurement": {
-                        "#text": "5",
-                        "@xsi:type": "ns1:UnitOfMeasureEnum"
+                        "@xsi:nil": "true"
                     }
                 }
             },
             {
                 "@xsi:type": "ns1:HouseCommunalService",
                 "consumption_norm": {
-                    "#text": "4.78000",
-                    "@xsi:type": "ns1:Decimal175"
+                    "@xsi:nil": "true"
                 },
                 "consumption_norm_additional_info": {
                     "@xsi:nil": "true"
@@ -973,52 +509,30 @@
                     "@xsi:nil": "true"
                 },
                 "consumption_norm_unit_of_measurement": {
-                    "#text": "4",
-                    "@xsi:type": "ns1:UnitOfMeasureEnum"
+                    "@xsi:nil": "true"
                 },
                 "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[2]",
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[1]",
                     "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
-                    "item": [
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "3785271",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "25.790",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2016-01-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "33",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                    "item": {
+                        "@xsi:type": "ns1:HouseCommunalServiceCost",
+                        "id": {
+                            "#text": "1468042",
+                            "@xsi:type": "xsd:int"
                         },
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "2532124",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "25.790",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2015-07-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "33",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                        "tariff": {
+                            "#text": "94.370",
+                            "@xsi:type": "ns1:Decimal153"
+                        },
+                        "tariff_start_date": {
+                            "#text": "2015-07-01",
+                            "@xsi:type": "xsd:date"
+                        },
+                        "unit_of_measurement": {
+                            "#text": "4",
+                            "@xsi:type": "ns1:UnitOfMeasureEnum"
                         }
-                    ]
+                    }
                 },
                 "date_stop": {
                     "@xsi:nil": "true"
@@ -1028,7 +542,7 @@
                     "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
                 },
                 "id": {
-                    "#text": "3290063",
+                    "#text": "3404020",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1036,50 +550,27 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "legal_act_of_tariff_date": {
-                    "#text": "2014-12-19",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_number": {
-                    "#text": "298/01-21",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_org_name": {
-                    "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "normative_acts": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct",
-                    "item": {
-                        "@xsi:type": "ns1:HouseCommunalServiceNormativeAct",
-                        "document_date": {
-                            "#text": "2012-08-20",
-                            "@xsi:type": "xsd:date"
-                        },
-                        "document_number": {
-                            "#text": "182/01-05-\u043e\u0441",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "document_organization_name": {
-                            "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "id": {
-                            "#text": "2052797",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[0]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct"
                 },
                 "provider_additional_info": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "provider_inn": {
-                    "#text": "7204095194",
+                    "#text": "7205011944",
                     "@xsi:type": "xsd:string"
                 },
                 "provider_name": {
-                    "#text": "\u0422\u044e\u043c\u0435\u043d\u044c\u0412\u043e\u0434\u043e\u043a\u0430\u043d\u0430\u043b",
+                    "#text": "\"\u0422\u0435\u043f\u043b\u043e \u0422\u044e\u043c\u0435\u043d\u0438\" \u041f\u0410\u041e \u0421\u0443\u044d\u043d\u043a\u043e",
                     "@xsi:type": "xsd:string"
                 },
                 "service_method": {
@@ -1097,58 +588,48 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "supply_contract_date": {
-                    "#text": "2012-05-02",
+                    "#text": "2013-09-30",
                     "@xsi:type": "xsd:date"
                 },
                 "supply_contract_number": {
-                    "#text": "00324/363",
+                    "#text": "\u0422-56537",
                     "@xsi:type": "xsd:string"
                 },
                 "tariff_description": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "tariff_description_file_id": {
-                    "#text": "13349139",
-                    "@xsi:type": "xsd:int"
+                    "@xsi:nil": "true"
                 },
                 "type": {
-                    "#text": "1",
+                    "#text": "2",
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "volumes_report": {
                     "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
                     "accrued_consumer": {
-                        "#text": "692378.30",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "arrear_to_supplier_amount": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "cash_to_provider_payment": {
-                        "#text": "703223.29",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "consumer_arrears": {
-                        "#text": "109171.78",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_by_consumers_amount": {
-                        "#text": "660968.20",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_to_supplier_amount": {
-                        "#text": "703223.29",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_penalties": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_volume": {
-                        "#text": "29467.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "unit_of_measurement": {
                         "#text": "4",
@@ -1159,8 +640,7 @@
             {
                 "@xsi:type": "ns1:HouseCommunalService",
                 "consumption_norm": {
-                    "#text": "8.58000",
-                    "@xsi:type": "ns1:Decimal175"
+                    "@xsi:nil": "true"
                 },
                 "consumption_norm_additional_info": {
                     "@xsi:nil": "true"
@@ -1179,48 +659,27 @@
                     "@xsi:type": "ns1:UnitOfMeasureEnum"
                 },
                 "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[2]",
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[1]",
                     "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
-                    "item": [
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "3788047",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "16.340",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2016-01-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "33",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                    "item": {
+                        "@xsi:type": "ns1:HouseCommunalServiceCost",
+                        "id": {
+                            "#text": "1468048",
+                            "@xsi:type": "xsd:int"
                         },
-                        {
-                            "@xsi:type": "ns1:HouseCommunalServiceCost",
-                            "id": {
-                                "#text": "2532127",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "tariff": {
-                                "#text": "16.340",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "tariff_start_date": {
-                                "#text": "2015-07-01",
-                                "@xsi:type": "xsd:date"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "33",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                        "tariff": {
+                            "#text": "25.790",
+                            "@xsi:type": "ns1:Decimal153"
+                        },
+                        "tariff_start_date": {
+                            "#text": "2015-07-01",
+                            "@xsi:type": "xsd:date"
+                        },
+                        "unit_of_measurement": {
+                            "#text": "4",
+                            "@xsi:type": "ns1:UnitOfMeasureEnum"
                         }
-                    ]
+                    }
                 },
                 "date_stop": {
                     "@xsi:nil": "true"
@@ -1230,7 +689,7 @@
                     "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
                 },
                 "id": {
-                    "#text": "3290064",
+                    "#text": "3404021",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1238,43 +697,20 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "legal_act_of_tariff_date": {
-                    "#text": "2014-12-19",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_number": {
-                    "#text": "298/01-21",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "legal_act_of_tariff_org_name": {
-                    "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "normative_acts": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct",
-                    "item": {
-                        "@xsi:type": "ns1:HouseCommunalServiceNormativeAct",
-                        "document_date": {
-                            "#text": "2012-08-20",
-                            "@xsi:type": "xsd:date"
-                        },
-                        "document_number": {
-                            "#text": "182/01-05-\u043e\u0441",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "document_organization_name": {
-                            "#text": "\u0414\u0422\u0438\u0426\u041f \u0422\u041e",
-                            "@xsi:type": "xsd:string"
-                        },
-                        "id": {
-                            "#text": "2052894",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[0]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct"
                 },
                 "provider_additional_info": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "provider_inn": {
                     "#text": "7204095194",
@@ -1299,20 +735,162 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "supply_contract_date": {
-                    "#text": "2012-05-02",
+                    "#text": "2011-08-11",
                     "@xsi:type": "xsd:date"
                 },
                 "supply_contract_number": {
-                    "#text": "00324/363",
+                    "#text": "00324/281",
                     "@xsi:type": "xsd:string"
                 },
                 "tariff_description": {
-                    "#text": "\u043d\u0435\u0442",
-                    "@xsi:type": "xsd:string"
+                    "@xsi:nil": "true"
                 },
                 "tariff_description_file_id": {
-                    "#text": "13349546",
+                    "@xsi:nil": "true"
+                },
+                "type": {
+                    "#text": "1",
+                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
+                },
+                "volumes_report": {
+                    "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
+                    "accrued_consumer": {
+                        "@xsi:nil": "true"
+                    },
+                    "arrear_to_supplier_amount": {
+                        "@xsi:nil": "true"
+                    },
+                    "cash_to_provider_payment": {
+                        "@xsi:nil": "true"
+                    },
+                    "consumer_arrears": {
+                        "@xsi:nil": "true"
+                    },
+                    "paid_by_consumers_amount": {
+                        "@xsi:nil": "true"
+                    },
+                    "paid_to_supplier_amount": {
+                        "@xsi:nil": "true"
+                    },
+                    "total_penalties": {
+                        "@xsi:nil": "true"
+                    },
+                    "total_volume": {
+                        "@xsi:nil": "true"
+                    },
+                    "unit_of_measurement": {
+                        "#text": "4",
+                        "@xsi:type": "ns1:UnitOfMeasureEnum"
+                    }
+                }
+            },
+            {
+                "@xsi:type": "ns1:HouseCommunalService",
+                "consumption_norm": {
+                    "@xsi:nil": "true"
+                },
+                "consumption_norm_additional_info": {
+                    "@xsi:nil": "true"
+                },
+                "consumption_norm_on_common_needs": {
+                    "@xsi:nil": "true"
+                },
+                "consumption_norm_on_common_needs_additional_info": {
+                    "@xsi:nil": "true"
+                },
+                "consumption_norm_on_common_needs_unit_of_measurement": {
+                    "@xsi:nil": "true"
+                },
+                "consumption_norm_unit_of_measurement": {
+                    "@xsi:nil": "true"
+                },
+                "costs": {
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceCost[1]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceCost",
+                    "item": {
+                        "@xsi:type": "ns1:HouseCommunalServiceCost",
+                        "id": {
+                            "#text": "1468049",
+                            "@xsi:type": "xsd:int"
+                        },
+                        "tariff": {
+                            "#text": "16.340",
+                            "@xsi:type": "ns1:Decimal153"
+                        },
+                        "tariff_start_date": {
+                            "#text": "2015-07-01",
+                            "@xsi:type": "xsd:date"
+                        },
+                        "unit_of_measurement": {
+                            "#text": "4",
+                            "@xsi:type": "ns1:UnitOfMeasureEnum"
+                        }
+                    }
+                },
+                "date_stop": {
+                    "@xsi:nil": "true"
+                },
+                "filling_fact": {
+                    "#text": "1",
+                    "@xsi:type": "ns1:CommunalServiceFillingFactEnum"
+                },
+                "id": {
+                    "#text": "3404022",
                     "@xsi:type": "xsd:int"
+                },
+                "is_default": {
+                    "#text": "true",
+                    "@xsi:type": "xsd:boolean"
+                },
+                "legal_act_of_tariff_date": {
+                    "@xsi:nil": "true"
+                },
+                "legal_act_of_tariff_number": {
+                    "@xsi:nil": "true"
+                },
+                "legal_act_of_tariff_org_name": {
+                    "@xsi:nil": "true"
+                },
+                "normative_acts": {
+                    "@SOAP-ENC:arrayType": "ns1:HouseCommunalServiceNormativeAct[0]",
+                    "@xsi:type": "ns1:ArrayOfHouseCommunalServiceNormativeAct"
+                },
+                "provider_additional_info": {
+                    "@xsi:nil": "true"
+                },
+                "provider_inn": {
+                    "#text": "7204095194",
+                    "@xsi:type": "xsd:string"
+                },
+                "provider_name": {
+                    "#text": "\u0422\u044e\u043c\u0435\u043d\u044c\u0412\u043e\u0434\u043e\u043a\u0430\u043d\u0430\u043b",
+                    "@xsi:type": "xsd:string"
+                },
+                "service_method": {
+                    "#text": "2",
+                    "@xsi:type": "ns1:CommunalServiceMethodEnum"
+                },
+                "stop_reason": {
+                    "@xsi:nil": "true"
+                },
+                "stop_reason_type": {
+                    "@xsi:nil": "true"
+                },
+                "supplied_via_management_organization": {
+                    "#text": "false",
+                    "@xsi:type": "xsd:boolean"
+                },
+                "supply_contract_date": {
+                    "@xsi:nil": "true"
+                },
+                "supply_contract_number": {
+                    "@xsi:nil": "true"
+                },
+                "tariff_description": {
+                    "@xsi:nil": "true"
+                },
+                "tariff_description_file_id": {
+                    "@xsi:nil": "true"
                 },
                 "type": {
                     "#text": "3",
@@ -1321,36 +899,28 @@
                 "volumes_report": {
                     "@xsi:type": "ns1:HouseCommunalServiceVolumesReport",
                     "accrued_consumer": {
-                        "#text": "467030.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "arrear_to_supplier_amount": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "cash_to_provider_payment": {
-                        "#text": "467030.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "consumer_arrears": {
-                        "#text": "71217.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_by_consumers_amount": {
-                        "#text": "453603.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "paid_to_supplier_amount": {
-                        "#text": "467030.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_penalties": {
-                        "#text": "0.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "total_volume": {
-                        "#text": "28154.00",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "unit_of_measurement": {
                         "#text": "4",
@@ -1361,62 +931,48 @@
         ]
     },
     "drainage_type": {
-        "#text": "3",
+        "#text": "2",
         "@xsi:type": "ns1:HouseDrainageTypeEnum"
     },
     "electrical_entries_count": {
-        "#text": "2",
-        "@xsi:type": "xsd:int"
+        "@xsi:nil": "true"
     },
     "electrical_type": {
         "#text": "2",
         "@xsi:type": "ns1:HouseElectricalTypeEnum"
     },
     "elevators_count": {
-        "#text": "5",
+        "#text": "7",
         "@xsi:type": "xsd:int"
     },
     "energy_efficiency": {
-        "#text": "1",
+        "#text": "5",
         "@xsi:type": "ns1:HouseEnergyEfficiencyClass988Enum"
     },
     "entrance_count": {
-        "#text": "5",
+        "#text": "7",
         "@xsi:type": "xsd:int"
     },
     "exploitation_start_year": {
-        "#text": "2007",
+        "#text": "1997",
         "@xsi:type": "xsd:int"
     },
     "facades": {
-        "@SOAP-ENC:arrayType": "ns1:HouseFacade[1]",
-        "@xsi:type": "ns1:ArrayOfHouseFacade",
-        "item": {
-            "@xsi:type": "ns1:HouseFacade",
-            "id": {
-                "#text": "241311",
-                "@xsi:type": "xsd:int"
-            },
-            "type": {
-                "#text": "1",
-                "@xsi:type": "ns1:HouseFacadeTypeEnum"
-            }
-        }
+        "@SOAP-ENC:arrayType": "ns1:HouseFacade[0]",
+        "@xsi:type": "ns1:ArrayOfHouseFacade"
     },
     "firefighting_type": {
-        "#text": "1",
-        "@xsi:type": "ns1:HouseFirefightingTypeEnum"
+        "@xsi:nil": "true"
     },
     "flats_count": {
-        "#text": "200",
-        "@xsi:type": "xsd:int"
+        "@xsi:nil": "true"
     },
     "floor_count_max": {
-        "#text": "10",
+        "#text": "9",
         "@xsi:type": "xsd:int"
     },
     "floor_count_min": {
-        "#text": "10",
+        "#text": "9",
         "@xsi:type": "xsd:int"
     },
     "floor_type": {
@@ -1444,8 +1000,7 @@
         "@xsi:type": "ns1:HouseHeatingTypeEnum"
     },
     "hot_water_type": {
-        "#text": "3",
-        "@xsi:type": "ns1:HouseHotWaterTypeEnum"
+        "@xsi:nil": "true"
     },
     "house_type": {
         "#text": "1",
@@ -1456,141 +1011,58 @@
         "@xsi:type": "xsd:boolean"
     },
     "lifts": {
-        "@SOAP-ENC:arrayType": "ns1:HouseLift[5]",
+        "@SOAP-ENC:arrayType": "ns1:HouseLift[1]",
         "@xsi:type": "ns1:ArrayOfHouseLift",
-        "item": [
-            {
-                "@xsi:type": "ns1:HouseLift",
-                "commissioning_year": {
-                    "#text": "2008",
-                    "@xsi:type": "xsd:int"
-                },
-                "id": {
-                    "#text": "449784",
-                    "@xsi:type": "xsd:int"
-                },
-                "porch_number": {
-                    "#text": "1",
-                    "@xsi:type": "xsd:string"
-                },
-                "type": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:HouseLiftTypeEnum"
-                }
+        "item": {
+            "@xsi:type": "ns1:HouseLift",
+            "commissioning_year": {
+                "#text": "2008",
+                "@xsi:type": "xsd:int"
             },
-            {
-                "@xsi:type": "ns1:HouseLift",
-                "commissioning_year": {
-                    "#text": "2008",
-                    "@xsi:type": "xsd:int"
-                },
-                "id": {
-                    "#text": "449785",
-                    "@xsi:type": "xsd:int"
-                },
-                "porch_number": {
-                    "#text": "2",
-                    "@xsi:type": "xsd:string"
-                },
-                "type": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:HouseLiftTypeEnum"
-                }
+            "id": {
+                "#text": "520014",
+                "@xsi:type": "xsd:int"
             },
-            {
-                "@xsi:type": "ns1:HouseLift",
-                "commissioning_year": {
-                    "#text": "2008",
-                    "@xsi:type": "xsd:int"
-                },
-                "id": {
-                    "#text": "449786",
-                    "@xsi:type": "xsd:int"
-                },
-                "porch_number": {
-                    "#text": "3",
-                    "@xsi:type": "xsd:string"
-                },
-                "type": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:HouseLiftTypeEnum"
-                }
+            "porch_number": {
+                "#text": "7",
+                "@xsi:type": "xsd:string"
             },
-            {
-                "@xsi:type": "ns1:HouseLift",
-                "commissioning_year": {
-                    "#text": "2008",
-                    "@xsi:type": "xsd:int"
-                },
-                "id": {
-                    "#text": "449787",
-                    "@xsi:type": "xsd:int"
-                },
-                "porch_number": {
-                    "#text": "4",
-                    "@xsi:type": "xsd:string"
-                },
-                "type": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:HouseLiftTypeEnum"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseLift",
-                "commissioning_year": {
-                    "#text": "2008",
-                    "@xsi:type": "xsd:int"
-                },
-                "id": {
-                    "#text": "449788",
-                    "@xsi:type": "xsd:int"
-                },
-                "porch_number": {
-                    "#text": "5",
-                    "@xsi:type": "xsd:string"
-                },
-                "type": {
-                    "#text": "1",
-                    "@xsi:type": "ns1:HouseLiftTypeEnum"
-                }
+            "type": {
+                "#text": "1",
+                "@xsi:type": "ns1:HouseLiftTypeEnum"
             }
-        ]
+        }
     },
     "living_quarters_count": {
-        "#text": "197",
-        "@xsi:type": "xsd:int"
+        "@xsi:nil": "true"
     },
     "management_contract": {
         "@xsi:type": "ns1:HouseManagementContract",
         "confirm_method_document_date": {
-            "#text": "2007-10-09",
+            "#text": "2006-05-12",
             "@xsi:type": "xsd:date"
         },
         "confirm_method_document_name": {
-            "#text": "\u041f\u0440\u043e\u0442\u043e\u043a\u043e\u043b \u043e\u0431\u0449\u0435\u0433\u043e \u0441\u043e\u0431\u0440\u0430\u043d\u0438\u044f",
+            "#text": "\u043f\u0440\u043e\u0442\u043e\u043a\u043e\u043b \u043e\u0431\u0449\u0435\u0433\u043e \u0441\u043e\u0431\u0440\u0430\u043d\u0438\u044f",
             "@xsi:type": "xsd:string"
         },
         "confirm_method_document_number": {
-            "#text": "\u0431\u043d",
+            "#text": "1",
             "@xsi:type": "xsd:string"
         },
         "date_start": {
-            "#text": "2007-12-14",
+            "#text": "2006-05-12",
             "@xsi:type": "xsd:date"
         },
         "management_contract_date": {
             "@xsi:nil": "true"
         },
         "management_contract_files": {
-            "@SOAP-ENC:arrayType": "xsd:int[1]",
-            "@xsi:type": "ns1:ArrayOfInt",
-            "item": {
-                "#text": "13346524",
-                "@xsi:type": "xsd:int"
-            }
+            "@SOAP-ENC:arrayType": "xsd:int[0]",
+            "@xsi:type": "ns1:ArrayOfInt"
         },
         "management_reason": {
-            "#text": "\u0420\u0435\u0448\u0435\u043d\u0438\u0435 \u0441\u043e\u0431\u0441\u0442\u0432\u0435\u043d\u043d\u0438\u043a\u043e\u0432",
+            "#text": "\u043f\u0440\u043e\u0442\u043e\u043a\u043e\u043b \u043e\u0431\u0449\u0435\u0433\u043e \u0441\u043e\u0431\u0440\u0430\u043d\u0438\u044f",
             "@xsi:type": "xsd:string"
         }
     },
@@ -1605,19 +1077,17 @@
                     "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
                 },
                 "calibration_date": {
-                    "#text": "2019-06-03",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "commissioning_date": {
-                    "#text": "2013-07-15",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "communal_resource_type": {
                     "#text": "1",
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "id": {
-                    "#text": "548344",
+                    "#text": "567337",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1636,7 +1106,7 @@
             {
                 "@xsi:type": "ns1:HouseMeteringDevice",
                 "availability": {
-                    "#text": "1",
+                    "#text": "3",
                     "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
                 },
                 "calibration_date": {
@@ -1650,7 +1120,7 @@
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "id": {
-                    "#text": "1558800",
+                    "#text": "1577793",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1658,75 +1128,42 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "meter_type": {
-                    "@xsi:nil": "true"
-                },
-                "unit_of_measurement": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseMeteringDevice",
-                "availability": {
                     "#text": "1",
-                    "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
-                },
-                "calibration_date": {
-                    "@xsi:nil": "true"
-                },
-                "commissioning_date": {
-                    "@xsi:nil": "true"
-                },
-                "communal_resource_type": {
-                    "#text": "3",
-                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
-                },
-                "id": {
-                    "#text": "2569256",
-                    "@xsi:type": "xsd:int"
-                },
-                "is_default": {
-                    "#text": "true",
-                    "@xsi:type": "xsd:boolean"
-                },
-                "meter_type": {
-                    "@xsi:nil": "true"
-                },
-                "unit_of_measurement": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseMeteringDevice",
-                "availability": {
-                    "#text": "3",
-                    "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
-                },
-                "calibration_date": {
-                    "#text": "2018-01-01",
-                    "@xsi:type": "xsd:date"
-                },
-                "commissioning_date": {
-                    "#text": "2008-01-01",
-                    "@xsi:type": "xsd:date"
-                },
-                "communal_resource_type": {
-                    "#text": "4",
-                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
-                },
-                "id": {
-                    "#text": "3579712",
-                    "@xsi:type": "xsd:int"
-                },
-                "is_default": {
-                    "#text": "true",
-                    "@xsi:type": "xsd:boolean"
-                },
-                "meter_type": {
-                    "#text": "2",
                     "@xsi:type": "ns1:HouseMeterTypeEnum"
                 },
                 "unit_of_measurement": {
-                    "#text": "31",
+                    "#text": "4",
+                    "@xsi:type": "ns1:UnitOfMeasureEnum"
+                }
+            },
+            {
+                "@xsi:type": "ns1:HouseMeteringDevice",
+                "availability": {
+                    "@xsi:nil": "true"
+                },
+                "calibration_date": {
+                    "@xsi:nil": "true"
+                },
+                "commissioning_date": {
+                    "@xsi:nil": "true"
+                },
+                "communal_resource_type": {
+                    "#text": "3",
+                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
+                },
+                "id": {
+                    "#text": "2588249",
+                    "@xsi:type": "xsd:int"
+                },
+                "is_default": {
+                    "#text": "true",
+                    "@xsi:type": "xsd:boolean"
+                },
+                "meter_type": {
+                    "@xsi:nil": "true"
+                },
+                "unit_of_measurement": {
+                    "#text": "4",
                     "@xsi:type": "ns1:UnitOfMeasureEnum"
                 }
             },
@@ -1737,19 +1174,50 @@
                     "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
                 },
                 "calibration_date": {
-                    "#text": "2019-07-16",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
                 },
                 "commissioning_date": {
-                    "#text": "2015-09-01",
-                    "@xsi:type": "xsd:date"
+                    "@xsi:nil": "true"
+                },
+                "communal_resource_type": {
+                    "#text": "4",
+                    "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
+                },
+                "id": {
+                    "#text": "3598705",
+                    "@xsi:type": "xsd:int"
+                },
+                "is_default": {
+                    "#text": "true",
+                    "@xsi:type": "xsd:boolean"
+                },
+                "meter_type": {
+                    "#text": "1",
+                    "@xsi:type": "ns1:HouseMeterTypeEnum"
+                },
+                "unit_of_measurement": {
+                    "#text": "37",
+                    "@xsi:type": "ns1:UnitOfMeasureEnum"
+                }
+            },
+            {
+                "@xsi:type": "ns1:HouseMeteringDevice",
+                "availability": {
+                    "#text": "3",
+                    "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
+                },
+                "calibration_date": {
+                    "@xsi:nil": "true"
+                },
+                "commissioning_date": {
+                    "@xsi:nil": "true"
                 },
                 "communal_resource_type": {
                     "#text": "5",
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "id": {
-                    "#text": "4590168",
+                    "#text": "4609161",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1757,18 +1225,19 @@
                     "@xsi:type": "xsd:boolean"
                 },
                 "meter_type": {
-                    "#text": "2",
+                    "#text": "1",
                     "@xsi:type": "ns1:HouseMeterTypeEnum"
                 },
                 "unit_of_measurement": {
-                    "#text": "4",
+                    "#text": "5",
                     "@xsi:type": "ns1:UnitOfMeasureEnum"
                 }
             },
             {
                 "@xsi:type": "ns1:HouseMeteringDevice",
                 "availability": {
-                    "@xsi:nil": "true"
+                    "#text": "1",
+                    "@xsi:type": "ns1:MeteringDeviceAvailabilityEnum"
                 },
                 "calibration_date": {
                     "@xsi:nil": "true"
@@ -1781,7 +1250,7 @@
                     "@xsi:type": "ns1:HouseCommunalServiceTypeEnum"
                 },
                 "id": {
-                    "#text": "5600624",
+                    "#text": "5619617",
                     "@xsi:type": "xsd:int"
                 },
                 "is_default": {
@@ -1798,199 +1267,122 @@
         ]
     },
     "method_of_forming_overhaul_fund": {
-        "#text": "3",
+        "#text": "1",
         "@xsi:type": "ns1:FormingOverhaulFundEnum"
     },
     "not_living_quarters_count": {
-        "#text": "3",
-        "@xsi:type": "xsd:int"
+        "@xsi:nil": "true"
     },
     "other_beautification": {
-        "#text": "\u043d\u0435\u0442",
+        "#text": "\u0441\u0442\u043e\u044f\u043d\u043a\u0430 \u0434\u043b\u044f \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439, \u043f\u043b\u043e\u0449\u0430\u0434\u043a\u0430 \u0434\u043b\u044f \u0441\u0431\u043e\u0440\u0430 \u0431\u044b\u0442\u043e\u0432\u044b\u0445 \u043e\u0442\u0445\u043e\u0434\u043e\u0432",
         "@xsi:type": "xsd:string"
     },
     "overhaul": {
-        "@xsi:nil": "true"
+        "@xsi:type": "ns1:HouseOverhaul",
+        "additional_info": {
+            "#text": "\u0433\u0440\u0430\u0444\u0438\u043a \u043f\u0440\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u044f \u043a\u0430\u043f\u0438\u0442\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0440\u0435\u043c\u043e\u043d\u0442\u0430:\n2027-2032 \u043a\u0440\u044b\u0448\u0430, \u043b\u0438\u0444\u0442\u044b, \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u0441\u043d\u0430\u0431\u0436\u0435\u043d\u0438\u0435\n2033-2038 \u043f\u043e\u0434\u0432\u0430\u043b,\u0432\u043e\u0434\u043e\u043e\u0442\u0432\u0435\u0434\u0435\u043d\u0438\u0435,\u0442\u0435\u043f\u043b\u043e\u0441\u043d\u0430\u0431\u0436\u0435\u043d\u0438\u0435,\u0432\u043e\u0434\u043e\u0441\u043d\u0430\u0431\u0436\u0435\u043d\u0438\u0435\n2039-2044\n\u043a\u0440\u044b\u0448\u0430",
+            "@xsi:type": "xsd:string"
+        },
+        "common_meeting_protocol_date": {
+            "#text": "2015-04-14",
+            "@xsi:type": "xsd:date"
+        },
+        "common_meeting_protocol_number": {
+            "#text": "3",
+            "@xsi:type": "xsd:string"
+        },
+        "payment_amount_for_1sm": {
+            "#text": "7.50",
+            "@xsi:type": "ns1:Decimal152"
+        },
+        "provider_inn": {
+            "#text": "7203176281",
+            "@xsi:type": "xsd:string"
+        },
+        "provider_name": {
+            "#text": "\u0422\u0421\u0416 \"\u041f\u043e\u0438\u0441\u043a\"",
+            "@xsi:type": "xsd:string"
+        }
     },
     "parking_square": {
         "@xsi:nil": "true"
     },
     "project_type": {
-        "#text": "121-3\u0442",
+        "#text": "\u043f\u0430\u043d\u0435\u043b\u044c\u043d\u044b\u0439",
         "@xsi:type": "xsd:string"
     },
     "report": {
         "@xsi:type": "ns1:HouseReport",
         "claims_to_consumers": {
-            "@xsi:type": "ns1:HouseReportClaimsToConsumers",
-            "filed_actions_count": {
-                "#text": "35",
-                "@xsi:type": "xsd:int"
-            },
-            "received_cash_amount": {
-                "#text": "379563.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "sent_claims_count": {
-                "#text": "112",
-                "@xsi:type": "xsd:int"
-            }
+            "@xsi:nil": "true"
         },
         "common": {
             "@xsi:type": "ns1:HouseReportCommon",
             "cash_balance_beginning_period": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_balance_beginning_period_consumers_arrears": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_balance_beginning_period_consumers_overpayment": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_balance_ending_period": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_balance_ending_period_consumers_arrears": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_balance_ending_period_consumers_overpayment": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "cash_total": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "charged_for_maintenance_of_house": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "charged_for_maintenance_work": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "charged_for_management_service": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "charged_for_services": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_cash": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_cash_from_owners": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_from_other": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_from_use_of_common_property": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_subsidies": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             },
             "received_target_payment_from_owners": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
+                "@xsi:nil": "true"
             }
         },
         "communal_service": {
-            "@xsi:type": "ns1:HouseReportCommunalService",
-            "balance_beginning_period": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "balance_beginning_period_consumers_arrears": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "balance_beginning_period_consumers_overpayment": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "balance_ending_period": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "balance_ending_period_consumers_arrears": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "balance_ending_period_consumers_overpayment": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            },
-            "claims_denied_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "claims_received_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "claims_satisfied_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "produced_recalculation_amount": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            }
+            "@xsi:nil": "true"
         },
         "house_report_quality_of_work_claims": {
-            "@xsi:type": "ns1:HouseReportQualityOfWorkClaims",
-            "claims_denied_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "claims_received_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "claims_satisfied_count": {
-                "#text": "0",
-                "@xsi:type": "xsd:int"
-            },
-            "produced_recalculation_amount": {
-                "#text": "0.00",
-                "@xsi:type": "ns1:Decimal152"
-            }
+            "@xsi:nil": "true"
         }
     },
     "roofs": {
-        "@SOAP-ENC:arrayType": "ns1:HouseRoof[1]",
-        "@xsi:type": "ns1:ArrayOfHouseRoof",
-        "item": {
-            "@xsi:type": "ns1:HouseRoof",
-            "id": {
-                "#text": "240228",
-                "@xsi:type": "xsd:int"
-            },
-            "roof_type": {
-                "#text": "1",
-                "@xsi:type": "ns1:HouseRoofTypeEnum"
-            },
-            "roofing_type": {
-                "#text": "6",
-                "@xsi:type": "ns1:HouseRoofingTypeEnum"
-            }
-        }
+        "@SOAP-ENC:arrayType": "ns1:HouseRoof[0]",
+        "@xsi:type": "ns1:ArrayOfHouseRoof"
     },
     "services": {
-        "@SOAP-ENC:arrayType": "ns1:HouseService[7]",
+        "@SOAP-ENC:arrayType": "ns1:HouseService[3]",
         "@xsi:type": "ns1:ArrayOfHouseService",
         "item": [
             {
@@ -2001,7 +1393,7 @@
                     "item": {
                         "@xsi:type": "ns1:HouseServiceCost",
                         "plan_cost_per_unit": {
-                            "#text": "307560.24",
+                            "#text": "138276.00",
                             "@xsi:type": "ns1:Decimal152"
                         },
                         "year": {
@@ -2014,441 +1406,7 @@
                     "@xsi:nil": "true"
                 },
                 "id": {
-                    "#text": "3193267",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "3",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "@xsi:nil": "true"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "307560.24",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "1.620",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2691776",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0420\u0430\u0431\u043e\u0442\u044b \u043f\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044e \u0432\u044b\u0432\u043e\u0437\u0430 \u0431\u044b\u0442\u043e\u0432\u044b\u0445 \u043e\u0442\u0445\u043e\u0434\u043e\u0432",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "941665.92",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "3193261",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "7",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "@xsi:nil": "true"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "941665.92",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "4.960",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2690802",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0420\u0430\u0431\u043e\u0442\u044b \u043f\u043e \u0441\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u0438\u044e \u0438 \u0440\u0435\u043c\u043e\u043d\u0442\u0443 \u043b\u0438\u0444\u0442\u0430 (\u043b\u0438\u0444\u0442\u043e\u0432) \u0432 \u043c\u043d\u043e\u0433\u043e\u043a\u0432\u0430\u0440\u0442\u0438\u0440\u043d\u043e\u043c \u0434\u043e\u043c\u0435",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "698655.36",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "3193243",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "14",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "#text": "\u0422\u0435\u043a\u0443\u0449\u0438\u0439 \u0440\u0435\u043c\u043e\u043d\u0442",
-                    "@xsi:type": "xsd:string"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "698655.36",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "3.680",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2690045",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0422\u0435\u043a\u0443\u0449\u0438\u0439 \u0440\u0435\u043c\u043e\u043d\u0442",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "514498.92",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "3193238",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "2",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "@xsi:nil": "true"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "514498.92",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "2.710",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2687366",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0420\u0430\u0431\u043e\u0442\u044b \u043f\u043e \u0441\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u0438\u044e \u043f\u043e\u043c\u0435\u0449\u0435\u043d\u0438\u0439, \u0432\u0445\u043e\u0434\u044f\u0449\u0438\u0445 \u0432 \u0441\u043e\u0441\u0442\u0430\u0432 \u043e\u0431\u0449\u0435\u0433\u043e \u0438\u043c\u0443\u0449\u0435\u0441\u0442\u0432\u0430 \u0432 \u043c\u043d\u043e\u0433\u043e\u043a\u0432\u0430\u0440\u0442\u0438\u0440\u043d\u043e\u043c \u0434\u043e\u043c\u0435",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "569556.00",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "3193200",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "13",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "@xsi:nil": "true"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "569556.00",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "3.000",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2682323",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0420\u0430\u0431\u043e\u0442\u044b \u043f\u043e \u0441\u043e\u0434\u0435\u0440\u0436\u0430\u043d\u0438\u044e \u0437\u0435\u043c\u0435\u043b\u044c\u043d\u043e\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u043a\u0430 \u0441 \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u0430\u043c\u0438 \u043e\u0437\u0435\u043b\u0435\u043d\u0435\u043d\u0438\u044f \u0438 \u0431\u043b\u0430\u0433\u043e\u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0430, \u0438\u043d\u044b\u043c\u0438 \u043e\u0431\u044a\u0435\u043a\u0442\u0430\u043c\u0438, \u043f\u0440\u0435\u0434\u043d\u0430\u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044b\u043c\u0438 \u0434\u043b\u044f \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u0438 \u044d\u043a\u0441\u043f\u043b\u0443\u0430\u0442\u0430\u0446\u0438\u0438 \u043c\u043d\u043e\u0433\u043e\u043a\u0432\u0430\u0440\u0442\u0438\u0440\u043d\u043e\u0433\u043e \u0434\u043e\u043c\u0430",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "413877.36",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "3193189",
-                    "@xsi:type": "xsd:int"
-                },
-                "name": {
-                    "#text": "14",
-                    "@xsi:type": "ns1:HouseServiceNameEnum"
-                },
-                "name_other": {
-                    "#text": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u0435",
-                    "@xsi:type": "xsd:string"
-                },
-                "report": {
-                    "@xsi:type": "ns1:HouseServiceReport",
-                    "fact_cost_per_unit": {
-                        "#text": "413877.36",
-                        "@xsi:type": "ns1:Decimal152"
-                    },
-                    "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "2.180",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2681707",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u043e\u0431\u0441\u043b\u0443\u0436\u0438\u0432\u0430\u043d\u0438\u0435",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
-                        }
-                    }
-                },
-                "stop_reason": {
-                    "@xsi:nil": "true"
-                },
-                "stop_reason_type": {
-                    "@xsi:nil": "true"
-                }
-            },
-            {
-                "@xsi:type": "ns1:HouseService",
-                "costs": {
-                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
-                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
-                    "item": {
-                        "@xsi:type": "ns1:HouseServiceCost",
-                        "plan_cost_per_unit": {
-                            "#text": "472731.48",
-                            "@xsi:type": "ns1:Decimal152"
-                        },
-                        "year": {
-                            "#text": "2015",
-                            "@xsi:type": "xsd:int"
-                        }
-                    }
-                },
-                "date_stop": {
-                    "@xsi:nil": "true"
-                },
-                "id": {
-                    "#text": "977909",
+                    "#text": "1794562",
                     "@xsi:type": "xsd:int"
                 },
                 "name": {
@@ -2461,35 +1419,107 @@
                 "report": {
                     "@xsi:type": "ns1:HouseServiceReport",
                     "fact_cost_per_unit": {
-                        "#text": "472731.48",
-                        "@xsi:type": "ns1:Decimal152"
+                        "@xsi:nil": "true"
                     },
                     "volumes": {
-                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[1]",
-                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume",
-                        "item": {
-                            "@xsi:type": "ns1:HouseServiceReportVolume",
-                            "cost_per_unit": {
-                                "#text": "2.490",
-                                "@xsi:type": "ns1:Decimal153"
-                            },
-                            "id": {
-                                "#text": "2680881",
-                                "@xsi:type": "xsd:int"
-                            },
-                            "name": {
-                                "#text": "\u0420\u0430\u0431\u043e\u0442\u044b (\u0443\u0441\u043b\u0443\u0433\u0438) \u043f\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u043c\u043d\u043e\u0433\u043e\u043a\u0432\u0430\u0440\u0442\u0438\u0440\u043d\u044b\u043c \u0434\u043e\u043c\u043e\u043c",
-                                "@xsi:type": "xsd:string"
-                            },
-                            "periodicity": {
-                                "#text": "1",
-                                "@xsi:type": "ns1:HouseReportServicesVolumesPeriodicityEnum"
-                            },
-                            "unit_of_measurement": {
-                                "#text": "49",
-                                "@xsi:type": "ns1:UnitOfMeasureEnum"
-                            }
+                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[0]",
+                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume"
+                    }
+                },
+                "stop_reason": {
+                    "@xsi:nil": "true"
+                },
+                "stop_reason_type": {
+                    "@xsi:nil": "true"
+                }
+            },
+            {
+                "@xsi:type": "ns1:HouseService",
+                "costs": {
+                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
+                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
+                    "item": {
+                        "@xsi:type": "ns1:HouseServiceCost",
+                        "plan_cost_per_unit": {
+                            "#text": "584724.00",
+                            "@xsi:type": "ns1:Decimal152"
+                        },
+                        "year": {
+                            "#text": "2015",
+                            "@xsi:type": "xsd:int"
                         }
+                    }
+                },
+                "date_stop": {
+                    "@xsi:nil": "true"
+                },
+                "id": {
+                    "#text": "1794555",
+                    "@xsi:type": "xsd:int"
+                },
+                "name": {
+                    "#text": "7",
+                    "@xsi:type": "ns1:HouseServiceNameEnum"
+                },
+                "name_other": {
+                    "@xsi:nil": "true"
+                },
+                "report": {
+                    "@xsi:type": "ns1:HouseServiceReport",
+                    "fact_cost_per_unit": {
+                        "@xsi:nil": "true"
+                    },
+                    "volumes": {
+                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[0]",
+                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume"
+                    }
+                },
+                "stop_reason": {
+                    "@xsi:nil": "true"
+                },
+                "stop_reason_type": {
+                    "@xsi:nil": "true"
+                }
+            },
+            {
+                "@xsi:type": "ns1:HouseService",
+                "costs": {
+                    "@SOAP-ENC:arrayType": "ns1:HouseServiceCost[1]",
+                    "@xsi:type": "ns1:ArrayOfHouseServiceCost",
+                    "item": {
+                        "@xsi:type": "ns1:HouseServiceCost",
+                        "plan_cost_per_unit": {
+                            "#text": "290649.12",
+                            "@xsi:type": "ns1:Decimal152"
+                        },
+                        "year": {
+                            "#text": "2015",
+                            "@xsi:type": "xsd:int"
+                        }
+                    }
+                },
+                "date_stop": {
+                    "@xsi:nil": "true"
+                },
+                "id": {
+                    "#text": "1794552",
+                    "@xsi:type": "xsd:int"
+                },
+                "name": {
+                    "#text": "3",
+                    "@xsi:type": "ns1:HouseServiceNameEnum"
+                },
+                "name_other": {
+                    "@xsi:nil": "true"
+                },
+                "report": {
+                    "@xsi:type": "ns1:HouseServiceReport",
+                    "fact_cost_per_unit": {
+                        "@xsi:nil": "true"
+                    },
+                    "volumes": {
+                        "@SOAP-ENC:arrayType": "ns1:HouseServiceReportVolume[0]",
+                        "@xsi:type": "ns1:ArrayOfHouseServiceReportVolume"
                     }
                 },
                 "stop_reason": {
@@ -2502,15 +1532,14 @@
         ]
     },
     "sewerage_cesspools_volume": {
-        "#text": "0.00",
-        "@xsi:type": "ns1:Decimal152"
+        "@xsi:nil": "true"
     },
     "sewerage_type": {
         "#text": "2",
         "@xsi:type": "ns1:HouseSewerageTypeEnum"
     },
     "ventilation_type": {
-        "#text": "4",
+        "#text": "3",
         "@xsi:type": "ns1:HouseVentilationTypeEnum"
     },
     "wall_material": {

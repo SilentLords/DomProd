@@ -141,3 +141,12 @@ class Payment(models.Model):
     days = models.IntegerField(default=0)
     payment_id = models.CharField(max_length=60)
     is_success = models.BooleanField(default=False)
+
+
+class DiscountCode(models.Model):
+    days_to_add = models.IntegerField(default=0)
+    limit_of_activations = models.IntegerField(default=0)
+    code = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f'Code: {self.code}, days: {self.days_to_add}, limit: {self.limit_of_activations}'

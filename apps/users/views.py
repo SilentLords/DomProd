@@ -8,7 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets, permissions
 from apps.users.serializers import CreateUserSerializer, LoginSerializer, UserSerializer
-from .models import User, PhoneOTP, Payment
+from .models import User, PhoneOTP, Payment, DiscountCode
 # from knox.views import LoginView
 import requests
 import re
@@ -149,13 +149,20 @@ class Register(APIView):
                     serializer.is_valid(raise_exception=True)
                     user = serializer.save()
                     if is_referral:
-                        if User.objects.filter(referral_code=ref_code):
-                            user.parent_referral = User.objects.get(referral_code=ref_code)
-                            user.subscribe_hours_count += REFERRAL_VALUES['hours_add_to_referral']
-                            user.subscribe_days_count += 1
-                            user.save()
+                        if isinstance(ref_code, int):
+                            if User.objects.filter(referral_code=ref_code):
+                                user.parent_referral = User.objects.get(referral_code=ref_code)
+                                user.subscribe_hours_count += REFERRAL_VALUES['hours_add_to_referral']
+                                user.subscribe_days_count += 1
+                                user.save()
                         else:
-                            pass
+                            if DiscountCode.objects.filter(code=ref_code):
+                                code = DiscountCode.objects.get(code=ref_code)
+                                user.subscribe_days_count += code.days_to_add
+                                code.limit_of_activations -= 1
+                                user.is_subscribe = True
+                                user.save()
+                                code.save()
                     user.save()
                     # token = AuthToken.objects.get(user=user).token_key + AuthToken.objects.get(user=user).salt
                     old.delete()
@@ -309,10 +316,13 @@ class LoginAPI(LoginView):
         # request.data.update({'status': True})
         return super().post(request, format=None)
 
+
 def get_online_users_count():
     ago5m = timezone.now() - timezone.timedelta(minutes=5)
     count = User.objects.filter(last_login__gte=ago5m).count()
     return count
+
+
 class UserView(RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     model = User
