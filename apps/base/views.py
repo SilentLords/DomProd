@@ -17,11 +17,14 @@ check_settings(settings)
 
 CHOICES = (('1к', '1к'), ('2к', '2к'), ('3к', '3к'), ('4к', '4к'), ('5к', '5к+'), ('студии', 'студии'))
 CHOICES_TYPE = (('Вторичка', 'Вторичка'), ('Новостройки', 'Новостройки'), ('Коттеджи', "Коттеджи"),('Участки', 'Участки'))
+OFFER_TYPE = (('Купить', 'Купить'),('Аренда', 'Аренда'))
 
 
 class InfoFilters(filters.FilterSet):
     phone = filters.NumberFilter(field_name='house_info__phone', lookup_expr='iexact')
     id = filters.NumberFilter(field_name='house_info__house_id', lookup_expr='iexact')
+    offer_type = filters.NumberFilter(field_name='offer_type')
+
     min_price = filters.NumberFilter(field_name="price", lookup_expr='gte')
     max_price = filters.NumberFilter(field_name="price", lookup_expr='lte')
     num_of_rooms = filters.MultipleChoiceFilter(choices=CHOICES, field_name='house_info__num_of_rooms',
@@ -45,7 +48,7 @@ class InfoFilters(filters.FilterSet):
         model = HouseModel
         fields = ['min_price','street', 'max_price', 'num_of_rooms', 'max_floor', 'min_floor', 'min_area', 'max_area',
                   'max_floor_count', 'min_floor_count', 'id', 'phone', 'type_house', 'min_kitchen_area',
-                  'max_kitchen_area', 'min_living_area', 'max_living_area', 'min_land_area', 'max_land_area']
+                  'max_kitchen_area', 'min_living_area', 'max_living_area', 'min_land_area', 'max_land_area','offer_type']
 
 
 class Pagination(PageNumberPagination):
