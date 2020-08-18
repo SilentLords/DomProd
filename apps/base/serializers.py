@@ -1,5 +1,5 @@
 import time
-DEBUG = False
+DEBUG = True
 from django.utils import timezone
 from apps.users.models import User
 from rest_framework import serializers

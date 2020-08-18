@@ -8,7 +8,7 @@ import sys
 
 DEBUG = False
 if DEBUG:
-    PATH_TO_DJANGO = 'C:/Users/nick/PycharmProjects/Domafound/'
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
 
@@ -63,7 +63,9 @@ class KvadroomSpider(scrapy.Spider):
     urls_pool = [
         'https://tum.kvadroom.ru/tyumen/kupit-kvartiru/',
         'https://tum.kvadroom.ru/tyumen/kupit-dom/',
-        'https://tum.kvadroom.ru/tyumen/zemelnie-uchastki/'
+        'https://tum.kvadroom.ru/tyumen/zemelnie-uchastki/',
+        'https://tum.kvadroom.ru/tyumen/sniat-kvartiru-bez-posrednikov/',
+        'https://tum.kvadroom.ru/tyumen/sniat-dom/'
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
@@ -89,7 +91,10 @@ class KvadroomSpider(scrapy.Spider):
         page_index = self.urls_pool.index(response.url)
         cards = response.css(self.parsing_params['card_selector'])
         print(f'Processing: {response.url}')
-        type_of_house = self.parsing_params['house_type_set'][page_index]
+        if 0 <= page_index < 3:
+            type_of_house = self.parsing_params['house_type_set'][page_index]
+        else:
+            type_of_house = self.parsing_params['house_type_set'][page_index-3]
         counter = 0
         for correct_card in cards:
             ignore_tag = correct_card.css(self.parsing_params['ignore_selector'])
@@ -120,13 +125,20 @@ class KvadroomSpider(scrapy.Spider):
         city = 0
         if 0 <= page_index < 3:
             city = 0
+            offer_type = 0
+        else:
+            offer_type = 1
         address = ' '.join(card.css(self.parsing_params['address_selector']).getall())
         x_cord, y_cord, address = get_cord(address)
-        title_image = card.css(self.parsing_params['title_image_selector']).get().split(',')[0]
+        try:
+            title_image = card.css(self.parsing_params['title_image_selector']).get().split(',')[0]
+        except:
+            title_image = ''
         title = type_of_house + " " + address
         price = correct_price(card.css(self.parsing_params['price_selector']).get())
         item = {
             'mode': 0,
+            'offer_type': offer_type,
             'house_id': house_id,
             'img': title_image,
             'title': title,

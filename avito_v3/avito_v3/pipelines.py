@@ -28,7 +28,6 @@ def store_images(house_id_val, images):
         print('Cant find house with this house_id')
 
 
-
 class AvitoV3Pipeline:
     key = 'af0deccbgcgidddjgnvljitntccdduijhdinfgjgfjir'
 
@@ -52,14 +51,17 @@ class AvitoV3Pipeline:
         x_cord_val = item['cords'][0]
         y_cord_val = item['cords'][1]
         house_type_val = item['house_type']
+        offer_type = item['offer_type']
         house = HouseModel.objects.filter(house_id=house_id_val)
+
         if house:
             print('This row is already exist')
         else:
             HouseModel.objects.create(house_id=house_id_val, title=title_val, link=link_val,
                                       address=address_val,
                                       Host=host_val, title_image=img_val, price=price_val, city=city_val,
-                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val,ready_to_go = False)
+                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val, ready_to_go=False,
+                                      offer_type=offer_type)
 
     def save_info(self, item):
         house_id_val = int(item['house_id'])
@@ -80,14 +82,14 @@ class AvitoV3Pipeline:
         phone_val = self.get_phone(house_id_val, item['headers'])
         if HouseInfo.objects.filter(house_id=house_id_val):
             house_info = HouseInfo.objects.get(house_id=house_id_val)
-            if HouseModel.objects.filter(house_id = house_id_val) and not HouseInfo.objects.filter(phone = phone_val):
-                house = HouseModel.objects.get(house_id = house_id_val)
+            if HouseModel.objects.filter(house_id=house_id_val) and not HouseInfo.objects.filter(phone=phone_val):
+                house = HouseModel.objects.get(house_id=house_id_val)
                 house.house_info = house_info
                 house.ready_to_go = True
                 house.save()
                 print('Add old House info')
         else:
-            if not HouseInfo.objects.filter(phone = phone_val):
+            if not HouseInfo.objects.filter(phone=phone_val):
                 info = HouseInfo.objects.create(house_id=house_id_val, type_of_participation=type_of_participation_val,
                                                 official_builder=official_builder_val, name_of_build=name_of_build_val,
                                                 decoration=decoration_val, floor=floor_val,
@@ -105,7 +107,6 @@ class AvitoV3Pipeline:
                 house.save()
             else:
                 HouseModel.objects.get(house_id=house_id_val).delete()
-
 
     def get_phone(self, house_id, Headers):
         req = r.get(

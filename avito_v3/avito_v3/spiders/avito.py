@@ -7,7 +7,7 @@ import sys
 
 DEBUG = False
 if DEBUG:
-    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/domofound2/'
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
 
@@ -58,7 +58,8 @@ class AvitoSpider(scrapy.Spider):
         'https://www.avito.ru/tyumen/kvartiry/prodam/vtorichka-ASgBAQICAUSSA8YQAUDmBxSMUg?cd=1&s=104&proprofile=1&f=ASgBAQICAUSSA8YQAkDmBxSMUpC~DRSWrjU',
         'https://www.avito.ru/tyumen/kvartiry/prodam/novostroyka-ASgBAQICAUSSA8YQAUDmBxSOUg?cd=1&s=104&proprofile=1&f=ASgBAQICAUSSA8YQAkDmBxSOUpC~DRSWrjU',
         'https://www.avito.ru/tyumen/doma_dachi_kottedzhi/prodam-ASgBAgICAUSUA9AQ?cd=1&s=104&user=1&proprofile=1',
-        'https://www.avito.ru/tyumen/zemelnye_uchastki/prodam-ASgBAgICAUSWA9oQ?cd=1&s=104&user=1&proprofile=1'
+        'https://www.avito.ru/tyumen/zemelnye_uchastki/prodam-ASgBAgICAUSWA9oQ?cd=1&s=104&user=1&proprofile=1',
+        'https://www.avito.ru/tyumen/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=1&user=1&proprofile=1'
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
@@ -89,7 +90,10 @@ class AvitoSpider(scrapy.Spider):
         page_index = self.urls_pool.index(response.url)
         cards = response.css(self.parsing_params['card_selector'])
         print(f'Processing: {response.url}')
-        type_of_house = self.parsing_params['house_type_set'][page_index]
+        if page_index >= 4:
+            type_of_house = self.parsing_params['house_type_set'][0]
+        else:
+            type_of_house = self.parsing_params['house_type_set'][page_index]
         counter = 0
         for correct_card in cards:
             if correct_card.css(self.parsing_params['ignore_selector']):
@@ -117,8 +121,11 @@ class AvitoSpider(scrapy.Spider):
     def parse_card(self, card, type_of_house, house_id, link, page_index=0):
         city = 0
         geo = ''
-        if 0 <= page_index < 3:
+        if 0 <= page_index < 4:
             city = 0
+            offer_type = 0
+        else:
+            offer_type = 1
         if card.css(self.parsing_params['geo_selector']):
             geo = card.css(self.parsing_params['geo_data_selector']).get()
         address = CITY_CHOICES[city][1] + card.css(self.parsing_params['address_selector']).get() + geo
@@ -128,6 +135,7 @@ class AvitoSpider(scrapy.Spider):
         price = correct_price(card.css(self.parsing_params['price_selector']).get())
         item = {
             'mode': 0,
+            'offer_type': offer_type,
             'house_id': house_id,
             'img': title_image,
             'title': title,

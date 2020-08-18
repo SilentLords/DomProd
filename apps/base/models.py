@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import CASCADE
 
 CITY_CHOICES = ((0, 'Тюмень'),)
+OFFER_CHOICES = ((0, 'Купить'), (1, "Аренда"))
 import datetime
 
 
@@ -28,6 +29,7 @@ class HouseInfo(models.Model):
 
 # Create your models here.
 class HouseModel(models.Model):
+    offer_type = models.CharField(choices=OFFER_CHOICES, max_length=40, default=0)
     type = models.CharField(max_length=20, null=True, blank=True)
     house_id = models.IntegerField(default=0, verbose_name='house_id')
     title = models.CharField(verbose_name="Title", name="title", max_length=200)
@@ -43,7 +45,7 @@ class HouseModel(models.Model):
     x_cord = models.FloatField(null=True, blank=True)
     y_cord = models.FloatField(null=True, blank=True)
     parsing_time = models.DateTimeField(auto_now_add=True, verbose_name="creation_time")
-    ready_to_go = models.BooleanField(default=True,verbose_name="ready_to_go")
+    ready_to_go = models.BooleanField(default=True, verbose_name="ready_to_go")
 
     def __str__(self):
         return "ID: " + str(self.id) + ", host: " + str(self.Host) + ', House_id: ' + str(self.house_id)

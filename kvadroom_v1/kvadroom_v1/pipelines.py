@@ -48,6 +48,7 @@ class KvadroomV1Pipeline:
         x_cord_val = item['cords'][0]
         y_cord_val = item['cords'][1]
         house_type_val = item['house_type']
+        offer_type = item['offer_type']
         house = HouseModel.objects.filter(house_id=house_id_val)
         if house:
             print('This row is already exist')
@@ -55,7 +56,8 @@ class KvadroomV1Pipeline:
             HouseModel.objects.create(house_id=house_id_val, title=title_val, link=link_val,
                                       address=address_val,
                                       Host=host_val, title_image=img_val, price=price_val, city=city_val,
-                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val, ready_to_go=False)
+                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val, ready_to_go=False,
+                                      offer_type=offer_type)
 
     def save_info(self, item):
         house_id_val = int(item['house_id'])

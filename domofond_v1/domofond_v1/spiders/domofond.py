@@ -9,7 +9,7 @@ import json
 DEBUG = False
 
 if DEBUG:
-    PATH_TO_DJANGO = 'C:/Users/nick/PycharmProjects/Domafound/'
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd/'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
 import datetime
@@ -64,7 +64,10 @@ class DomofondSpider(scrapy.Spider):
     urls_pool = [
         'https://www.domofond.ru/prodazha-kvartiry-tyumen-c2547?ApartmentSaleType=New&PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/prodazha-kvartiry-tyumen-c2547?ApartmentSaleType=Resale&PrivateListingType=PrivateOwner&SortOrder=Newest',
-        'https://www.domofond.ru/prodazha-uchastkizemli-tyumen-c2547?PrivateListingType=PrivateOwner']
+        'https://www.domofond.ru/prodazha-doma-tyumen-c2547?PrivateListingType=PrivateOwner',
+        'https://www.domofond.ru/prodazha-uchastkizemli-tyumen-c2547?PrivateListingType=PrivateOwner',
+        'https://www.domofond.ru/arenda-kvartiry-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner',
+        'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner']
     types = ['Новостройки', 'Вторичка', 'Коттеджи', 'Участки']
 
     def parse(self, response):
@@ -87,6 +90,10 @@ class DomofondSpider(scrapy.Spider):
         city = 0
         if 0 <= page_index < 4:
             city = 0
+            offer_type = 0
+        else:
+            city = 0
+            offer_type = 1
         title = card.css('span.long-item-card__title___16K7W::text').get()
         link = response.urljoin(card.css('::attr(href)').get())
         house_id = correct_house_id(link.split('-')[-1])
@@ -97,10 +104,14 @@ class DomofondSpider(scrapy.Spider):
             address = CITY_CHOICES[city][1] + ' ' + address
         x_cord, y_cord, address = get_cord(address)
         title_image = card.css('img.card-photo__image___31CHC::attr(src)').get()
-        type_ = self.types[self.urls_pool.index(response.url)]
+        if 0<= page_index < 4:
+            type_ = self.types[self.urls_pool.index(response.url)]
+        else:
+            type_ = self.types[self.urls_pool.index(response.url) -3]
         print('suka')
         yield ({
             'mode': 0,
+            'offer_type': offer_type,
             'type': type_,
             'house_id': house_id,
             "link": link,
@@ -129,6 +140,7 @@ class DomofondSpider(scrapy.Spider):
             return images
         else:
             return []
+
     def parse_info(self, response):
         is_today = False
         num_of_rooms = type_ = house_type = ''
@@ -203,4 +215,3 @@ class DomofondSpider(scrapy.Spider):
         else:
             print('Old house')
             delete_house_model(house_id)
-
