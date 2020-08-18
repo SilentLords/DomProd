@@ -66,8 +66,8 @@ class DomofondSpider(scrapy.Spider):
         'https://www.domofond.ru/prodazha-kvartiry-tyumen-c2547?ApartmentSaleType=Resale&PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/prodazha-doma-tyumen-c2547?PrivateListingType=PrivateOwner',
         'https://www.domofond.ru/prodazha-uchastkizemli-tyumen-c2547?PrivateListingType=PrivateOwner',
-        'https://www.domofond.ru/arenda-kvartiry-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner',
-        'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner']
+        'https://www.domofond.ru/arenda-kvartiry-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest',
+        'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest']
     types = ['Новостройки', 'Вторичка', 'Коттеджи', 'Участки']
 
     def parse(self, response):

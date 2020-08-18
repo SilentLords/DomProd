@@ -59,7 +59,7 @@ class AvitoSpider(scrapy.Spider):
         'https://www.avito.ru/tyumen/kvartiry/prodam/novostroyka-ASgBAQICAUSSA8YQAUDmBxSOUg?cd=1&s=104&proprofile=1&f=ASgBAQICAUSSA8YQAkDmBxSOUpC~DRSWrjU',
         'https://www.avito.ru/tyumen/doma_dachi_kottedzhi/prodam-ASgBAgICAUSUA9AQ?cd=1&s=104&user=1&proprofile=1',
         'https://www.avito.ru/tyumen/zemelnye_uchastki/prodam-ASgBAgICAUSWA9oQ?cd=1&s=104&user=1&proprofile=1',
-        'https://www.avito.ru/tyumen/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=1&user=1&proprofile=1'
+        'https://www.avito.ru/tyumen/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=1&s=104&user=1&proprofile=1'
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
