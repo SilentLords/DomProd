@@ -6,7 +6,7 @@ import scrapy
 import requests as r
 import json
 
-DEBUG = False
+DEBUG = True
 
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd/'
@@ -66,9 +66,10 @@ class DomofondSpider(scrapy.Spider):
         'https://www.domofond.ru/prodazha-kvartiry-tyumen-c2547?ApartmentSaleType=Resale&PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/prodazha-doma-tyumen-c2547?PrivateListingType=PrivateOwner',
         'https://www.domofond.ru/prodazha-uchastkizemli-tyumen-c2547?PrivateListingType=PrivateOwner',
+        'https://www.domofond.ru/prodazha-kommercheskay-nedvizhimost-tyumen-c2547?PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/arenda-kvartiry-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest']
-    types = ['Новостройки', 'Вторичка', 'Коттеджи', 'Участки']
+    types = ['Новостройки', 'Вторичка', 'Коттеджи', 'Участки', 'Коммерческаянедвижимость']
 
     def parse(self, response):
         cards = response.css('a.long-item-card__item___ubItG')
@@ -88,7 +89,7 @@ class DomofondSpider(scrapy.Spider):
 
     def parse_card(self, card, response, page_index):
         city = 0
-        if 0 <= page_index < 4:
+        if 0 <= page_index < 5:
             city = 0
             offer_type = 0
         else:
@@ -104,10 +105,10 @@ class DomofondSpider(scrapy.Spider):
             address = CITY_CHOICES[city][1] + ' ' + address
         x_cord, y_cord, address = get_cord(address)
         title_image = card.css('img.card-photo__image___31CHC::attr(src)').get()
-        if 0<= page_index < 4:
+        if 0 <= page_index < 5:
             type_ = self.types[self.urls_pool.index(response.url)]
         else:
-            type_ = self.types[self.urls_pool.index(response.url) -3]
+            type_ = self.types[self.urls_pool.index(response.url) - 4]
         print('suka')
         yield ({
             'mode': 0,
@@ -130,15 +131,18 @@ class DomofondSpider(scrapy.Spider):
     def get_photos(self, response):
         text = response.text
         images = []
-        if text.find('PhotoGallery') > -1:
-            text = text.split('"galleries":[')[-1].split('],"phone":')[0]
-            json_text = json.loads(text)
-            for image in json_text['images']:
-                # print(image)
-                images.append(image[0]['url'])
-            # print(images)
-            return images
-        else:
+        try:
+            if text.find('PhotoGallery') > -1:
+                text = text.split('"galleries":[')[-1].split('],"phone":')[0]
+                json_text = json.loads(text)
+                for image in json_text['images']:
+                    # print(image)
+                    images.append(image[0]['url'])
+                # print(images)
+                return images
+            else:
+                return []
+        except:
             return []
 
     def parse_info(self, response):

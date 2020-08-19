@@ -19,16 +19,20 @@ import django
 
 django.setup()
 from apps.base.models import HouseModel, Image, HouseInfo
+
+
 def store_images(house_id_val, images):
-    house_id = HouseModel.objects.filter(house_id=house_id_val)
-    if house_id:
-        house = HouseModel.objects.get(house_id=house_id_val)
-        house.title_image = images[0]
-        print('Add images')
-        for image in images:
-            Image.objects.create(image_link=image, house=house)
-    else:
-        print('Cant find house with this house_id')
+    if images:
+        house_id = HouseModel.objects.filter(house_id=house_id_val)
+        if house_id:
+            house = HouseModel.objects.get(house_id=house_id_val)
+            house.title_image = images[0]
+            print('Add images')
+            for image in images:
+                Image.objects.create(image_link=image, house=house)
+        else:
+            print('Cant find house with this house_id')
+
 
 class DomofondV1Pipeline:
     def process_item(self, item, spider):
@@ -60,7 +64,7 @@ class DomofondV1Pipeline:
             HouseModel.objects.create(house_id=house_id, title=title_val, link=link_val, address=address_val,
                                       data=data_val, time=time_created_val, Host=host_val,
                                       title_image=img_val, price=price_val, city=city, x_cord=x_cord, type=item['type'],
-                                      y_cord=y_cord, ready_to_go=False, offer_type = offer_type)
+                                      y_cord=y_cord, ready_to_go=False, offer_type=offer_type)
 
     def save_info(self, item):
         # print(item['floor_count'])
@@ -89,7 +93,7 @@ class DomofondV1Pipeline:
         house_id_val = house_id_val
         if HouseInfo.objects.filter(house_id=house_id_val):
             house_info = HouseInfo.objects.get(house_id=house_id_val)
-            if HouseModel.objects.filter(house_id=house_id_val) or not HouseInfo.objects.filter(phone = phone_val):
+            if HouseModel.objects.filter(house_id=house_id_val) or not HouseInfo.objects.filter(phone=phone_val):
                 house = HouseModel.objects.get(house_id=house_id_val)
                 house.house_info = house_info
                 house.title_image = item['images'][0]
@@ -98,7 +102,7 @@ class DomofondV1Pipeline:
 
                 print('Add old House info')
         else:
-            if not HouseInfo.objects.filter(phone = phone_val):
+            if not HouseInfo.objects.filter(phone=phone_val):
                 store_images(house_id_val, images=item['images'])
                 info = HouseInfo.objects.create(house_id=house_id_val, type_of_participation=type_of_participation_val,
                                                 official_builder=official_builder_val, name_of_build=name_of_build_val,
@@ -114,7 +118,8 @@ class DomofondV1Pipeline:
                     house = HouseModel.objects.get(house_id=house_id_val)
                     print(house_id_val, info)
                     house.house_info = info
-                    house.title_image = item['images'][0]
+                    if item['images']:
+                        house.title_image = item['images'][0]
                     house.data = item['data']
                     house.ready_to_go = True
                     house.save()

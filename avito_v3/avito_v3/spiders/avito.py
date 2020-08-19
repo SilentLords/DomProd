@@ -5,7 +5,7 @@ import re
 import scrapy
 import sys
 
-DEBUG = False
+DEBUG = True
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
@@ -59,14 +59,17 @@ class AvitoSpider(scrapy.Spider):
         'https://www.avito.ru/tyumen/kvartiry/prodam/novostroyka-ASgBAQICAUSSA8YQAUDmBxSOUg?cd=1&s=104&proprofile=1&f=ASgBAQICAUSSA8YQAkDmBxSOUpC~DRSWrjU',
         'https://www.avito.ru/tyumen/doma_dachi_kottedzhi/prodam-ASgBAgICAUSUA9AQ?cd=1&s=104&user=1&proprofile=1',
         'https://www.avito.ru/tyumen/zemelnye_uchastki/prodam-ASgBAgICAUSWA9oQ?cd=1&s=104&user=1&proprofile=1',
-        'https://www.avito.ru/tyumen/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=1&s=104&user=1&proprofile=1'
+        'https://www.avito.ru/tyumen/kommercheskaya_nedvizhimost/prodam-ASgBAgICAUSwCNJW?cd=1&s=104&user=1&proprofile=1&f=ASgBAgICAkSwCNJW8hKg2gE',
+        'https://www.avito.ru/tyumen/kvartiry/sdam/na_dlitelnyy_srok-ASgBAgICAkSSA8gQ8AeQUg?cd=1&s=104&user=1&proprofile=1',
+        'https://www.avito.ru/tyumen/doma_dachi_kottedzhi/sdam-ASgBAgICAUSUA9IQ?cd=1&s=104&user=1&proprofile=1',
+        'https://www.avito.ru/tyumen/kommercheskaya_nedvizhimost/sdam-ASgBAgICAUSwCNRW?cd=1&s=104&user=1&proprofile=1&f=ASgBAgICAkSwCNRW9BKk2gE'
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
         'card_to_parse': 4,
         'key_to_phone': 'af0deccbgcgidddjgnvljitntccdduijhdinfgjgfjir',
         'card_selector': '.item__line',
-        'house_type_set': ['Вторичка', 'Новостройки', 'Коттеджи', 'Участки'],
+        'house_type_set': ['Вторичка', 'Новостройки', 'Коттеджи', 'Участки','Коммерческаянедвижимость'],
         'ignore_selector': 'span.snippet-tag',
         'link_selector': 'a.snippet-link::attr(href)',
         'geo_selector': 'span.item-address-georeferences',
@@ -90,8 +93,12 @@ class AvitoSpider(scrapy.Spider):
         page_index = self.urls_pool.index(response.url)
         cards = response.css(self.parsing_params['card_selector'])
         print(f'Processing: {response.url}')
-        if page_index >= 4:
+        if page_index == 5:
             type_of_house = self.parsing_params['house_type_set'][0]
+        elif page_index == 6:
+            type_of_house = self.parsing_params['house_type_set'][2]
+        elif page_index == 7:
+            type_of_house = self.parsing_params['house_type_set'][-1]
         else:
             type_of_house = self.parsing_params['house_type_set'][page_index]
         counter = 0
@@ -121,7 +128,7 @@ class AvitoSpider(scrapy.Spider):
     def parse_card(self, card, type_of_house, house_id, link, page_index=0):
         city = 0
         geo = ''
-        if 0 <= page_index < 4:
+        if 0 <= page_index < 5:
             city = 0
             offer_type = 0
         else:
@@ -202,7 +209,7 @@ class AvitoSpider(scrapy.Spider):
                 if re.search(r'Количество комнат', name_of_field):
                     num_of_rooms = value_of_field.replace(' ', '')
 
-                    if num_of_rooms == 'студии' or num_of_rooms == "своб.планировка":
+                    if num_of_rooms == 'студии' or num_of_rooms == "своб.планировка" or num_of_rooms == 'студия':
                         print('Студия или своб. планировка')
                     else:
                         if int(num_of_rooms.split('к')[0]) >= 5:
