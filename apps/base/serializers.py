@@ -125,8 +125,8 @@ class AdvancedHouseSerializer(serializers.Serializer):
             if house.house_info:
                 phone = house.house_info.phone
             else:
-                phone = None
-            houses.append({"items": {'id': house.id, 'title': house.title, 'address': house.address,
+                phone = 0
+            houses.append({"items": {'offer_type':house.offer_type, 'id': house.id, 'title': house.title, 'address': house.address,
                                      'phone': phone, 'image_link': house.title_image,
                                      'host': house.Host,
                                      'link': house.link,
