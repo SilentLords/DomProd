@@ -6,7 +6,7 @@ import scrapy
 import requests as r
 import json
 
-DEBUG = True
+DEBUG = False
 
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd/'
