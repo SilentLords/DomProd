@@ -7,9 +7,9 @@ import sys
 
 import scrapy
 
-DEBUG = False
+DEBUG = True
 if DEBUG:
-    PATH_TO_DJANGO = 'C:/Users/nick/PycharmProjects/Domafound/'
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd/'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
 
@@ -160,14 +160,17 @@ class N1Spider(scrapy.Spider):
         if response.url.find('zemlya') > -1:
             address = card.css('.land-list-card__district::text').get()
         else:
-            if card.css('a.link > span::text').get().split(',') and (card.css(
-                    '.living-list-card__inner-block::text').get() or card.css(
-                'span.living-list-card-city-with-estate__item::text').get()):
-                address = card.css('a.link > span::text').get().split(',')[1] + ' ' + \
-                          card.css('a.link > span::text').get().split(',')[2] + ' ' + card.css(
-                    '.living-list-card__inner-block::text').get() + ' ' + card.css(
-                    'span.living-list-card-city-with-estate__item::text').get()
-            else:
+            try:
+                if card.css('a.link > span::text').get().split(',') and (card.css(
+                        '.living-list-card__inner-block::text').get() or card.css(
+                    'span.living-list-card-city-with-estate__item::text').get()):
+                    address = card.css('a.link > span::text').get().split(',')[1] + ' ' + \
+                              card.css('a.link > span::text').get().split(',')[2] + ' ' + card.css(
+                        '.living-list-card__inner-block::text').get() + ' ' + card.css(
+                        'span.living-list-card-city-with-estate__item::text').get()
+                else:
+                    address = ''
+            except:
                 address = ''
 
             x_cord, y_cord, address = get_cord(address)
