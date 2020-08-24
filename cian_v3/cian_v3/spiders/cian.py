@@ -5,9 +5,9 @@ import re
 import scrapy
 import sys
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
-    PATH_TO_DJANGO = 'C:/Users/nick/PycharmProjects/DomProd/'
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
 
@@ -80,9 +80,10 @@ class CianSpider(scrapy.Spider):
     }
     parsing_info_params = {'image_set_selector': '.gallery-img-frame',
                            'image_data_selector': '::attr(data-url)',
-                           'data_selectors': 'p.a10a3f92e9--description-text--3Sal4::text',
+                           'data_selector': 'p.a10a3f92e9--description-text--3Sal4::text',
                            'views_selector': '.a10a3f92e9--link--1t8n1::text',
-                           'info_selectors': ['.a10a3f92e9--info--3XiXi','.a10a3f92e9--info-value--18c8R::text','.a10a3f92e9--info-title--2bXM9::text']
+                           'info_selectors': ['.a10a3f92e9--info--3XiXi','.a10a3f92e9--info-value--18c8R::text','.a10a3f92e9--info-title--2bXM9::text'],
+                           'phone_selector': 'a.a10a3f92e9--phone--3XYRR::text'
                            }
 
     def parse(self, response):
@@ -179,7 +180,7 @@ class CianSpider(scrapy.Spider):
             type_ = get_house_type(house_id)
             image_set = response.css(self.parsing_info_params['image_set_selector'])
             images = []
-
+            data = response.css(self.parsing_info_params['data_selector']).get()
             query_selector = self.parsing_info_params['info_selectors']
             for info in response.css(query_selector[0]):
                 name_of_field = info.css(query_selector[2]).get()
@@ -194,9 +195,12 @@ class CianSpider(scrapy.Spider):
                 if re.search(r'Отделка', name_of_field):
                     decoration = value_of_field
                 if re.search(r'Этаж', name_of_field):
-                    value_of_field = re.sub(r'[^0-9из]', '', value_of_field)
-                    floor = int(value_of_field.split('из')[0])
-                    floor_count = int(value_of_field.split('из')[1])
+                    try:
+                        value_of_field = re.sub(r'[^0-9из]', '', value_of_field)
+                        floor = int(value_of_field.split('из')[0])
+                        floor_count = int(value_of_field.split('из')[1])
+                    except:
+                        floor_count = int(value_of_field)
                 if re.search(r'Тип дома', name_of_field):
                     house_type = value_of_field
                 if re.search(r'Количество комнат', name_of_field):
@@ -221,12 +225,28 @@ class CianSpider(scrapy.Spider):
                     house_type = value_of_field
                 if re.search(r'Жилая', name_of_field):
                     living_area = float(re.sub(r'[^0-9.]', '', value_of_field.replace(',', '.')))
-                if re.search(r'Площадь кухни', name_of_field):
+                if re.search(r'Кухня', name_of_field):
                     kitchen_area = float(re.sub(r'[^0-9.]', '', value_of_field.replace(',', '.')))
                 if re.search(r'Площадь дома', name_of_field):
                     total_area = float(re.sub(r'[^0-9.]', '', value_of_field.replace(',', '.')))
                 if re.search(r'Участок', name_of_field):
                     land_area = float(re.sub(r'[^0-9.]', '', value_of_field.replace('сот.', '')))
+            try:
+                if response.css('h1.a10a3f92e9--title--2Widg::text').get().split(',')[0] == 'Студия' or \
+                        response.css('h1.a10a3f92e9--title--2Widg::text').get().split(',')[
+                            0] == 'Апартаменты свободной планировки':
+                    num_of_rooms = 'студии'
+                else:
+                    room_count = int(response.css('h1.a10a3f92e9--title--2Widg::text').get().split(',')[0].split('-')[0])
+                    if room_count > 5:
+                        num_of_rooms = f'5к+ {room_count}'
+                    else:
+                        num_of_rooms = f'{room_count}к'
+            except:
+                num_of_rooms = ''
+
+            phone = re.sub(r'[^0-9]','',response.css(self.parsing_info_params['phone_selector']).get().replace(' ', ''))
+
             item = {
                 'mode': 1,
                 'house_id': house_id,
@@ -242,9 +262,11 @@ class CianSpider(scrapy.Spider):
                 "living_area": living_area,
                 "kitchen_area": kitchen_area,
                 'land_area': land_area,
+                'phone': phone,
                 # 'headers': headers,
                 'data': data,
-                'img_set': images}
+                'img_set': images,
+            'deadline': ''}
             print(item)
             yield item
         else:
