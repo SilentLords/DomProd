@@ -6,7 +6,7 @@ import re
 import scrapy
 import sys
 
-DEBUG = False
+DEBUG = True
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
@@ -98,12 +98,16 @@ class KvadroomSpider(scrapy.Spider):
         counter = 0
         for correct_card in cards:
             ignore_tag = correct_card.css(self.parsing_params['ignore_selector'])
+            if correct_card.css('.ci_3-sp'):
+                cards.pop(cards.index(correct_card))
+                counter += 1
             if ignore_tag:
                 # print(ignore_tag[1])
                 if not ignore_tag[0].css('::text').get() == 'Наш партнер':
                     cards.pop(cards.index(correct_card))
                     counter += 1
         print(f'Deleted lines: {counter}')
+        print(cards.__len__())
         for card in cards:
             if cards.index(card) < self.parsing_params['card_to_parse']:
                 house_link = response.urljoin(card.css(self.parsing_params['link_selector']).get())
@@ -134,7 +138,9 @@ class KvadroomSpider(scrapy.Spider):
             title_image = card.css(self.parsing_params['title_image_selector']).get().split(',')[0]
         except:
             title_image = ''
+        print(card)
         title = type_of_house + " " + address
+        print(card.css(self.parsing_params['price_selector']).get())
         price = correct_price(card.css(self.parsing_params['price_selector']).get())
         item = {
             'mode': 0,
@@ -181,9 +187,12 @@ class KvadroomSpider(scrapy.Spider):
                         land_area = float(re.sub(r'[^0-9.]', '', value_of_field))
 
                     if re.search(r'этаж', value_of_field):
-                        value_of_field = re.sub(r'[^0-9из]', '', value_of_field)
-                        floor = int(value_of_field.split('из')[0])
-                        floor_count = int(value_of_field.split('из')[1])
+                        try:
+                            value_of_field = re.sub(r'[^0-9из]', '', value_of_field)
+                            floor = int(value_of_field.split('из')[0])
+                            floor_count = int(value_of_field.split('из')[1])
+                        except:
+                            floor_count = re.sub(r'[^0-9]', '', value_of_field)
                     if re.search(r'-x', value_of_field):
                         num_of_rooms = value_of_field.replace(' ', '')
 
