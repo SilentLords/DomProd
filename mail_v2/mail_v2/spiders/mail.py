@@ -53,7 +53,7 @@ class MailSpider(scrapy.Spider):
         page_index = self.urls_pool.index(response.url)
         city = 0
         for card in cards:
-            if cards.index(card) < 1:
+            if cards.index(card) < 10:
                 house_id = correct_house_id(card.css('a.p-instance__title::attr(href)').get())
                 if check_db(house_id):
                     link = yield from self.parse_card_info(card, city, house_id, page_index, response)

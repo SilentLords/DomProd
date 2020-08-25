@@ -97,7 +97,7 @@ class CianSpider(scrapy.Spider):
         cards += other_cards
         print(f'Processing: {response.url}')
         # TODO CORRECT
-        if page_index < 4:
+        if page_index <= 4:
             type_of_house = self.parsing_params['house_type_set'][page_index]
         else:
             type_of_house = self.parsing_params['house_type_set'][page_index-4]
@@ -129,7 +129,7 @@ class CianSpider(scrapy.Spider):
     def parse_card(self, card, type_of_house, house_id, link, page_index=0):
         city = 0
         geo = ''
-        if 0 <= page_index < 5:
+        if page_index < 5:
             city = 0
             offer_type = 0
         else:

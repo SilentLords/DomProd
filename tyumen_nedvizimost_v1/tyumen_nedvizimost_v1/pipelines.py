@@ -65,7 +65,7 @@ class TyumenNedvizimostV1Pipeline:
             HouseModel.objects.create(house_id=house_id_val, title=title_val, link=link_val,
                                       address=address_val,
                                       Host=host_val, title_image=img_val, price=price_val, city=city_val,
-                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val,ready_to_go = False)
+                                      x_cord=x_cord_val, y_cord=y_cord_val, type=house_type_val,ready_to_go = False, offer_type = 0)
 
     def save_info(self, item):
         house_id_val = int(item['house_id'])

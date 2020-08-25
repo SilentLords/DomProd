@@ -29,7 +29,7 @@ class HouseInfo(models.Model):
 
 # Create your models here.
 class HouseModel(models.Model):
-    offer_type = models.CharField(choices=OFFER_CHOICES, max_length=40, default=0)
+    offer_type = models.IntegerField(choices=OFFER_CHOICES, max_length=40, default=0)
     type = models.CharField(max_length=20, null=True, blank=True)
     house_id = models.IntegerField(default=0, verbose_name='house_id')
     title = models.CharField(verbose_name="Title", name="title", max_length=200)
@@ -41,7 +41,7 @@ class HouseModel(models.Model):
     time_to_create = models.CharField(verbose_name="Time", name="time", max_length=200, blank=True)
     host = models.CharField(verbose_name="Host", name="Host", max_length=200, )
     house_info = models.ForeignKey(HouseInfo, on_delete=CASCADE, null=True, blank=True)
-    city = models.CharField(max_length=20, choices=CITY_CHOICES, null=True, blank=True)
+    city = models.IntegerField(max_length=20, choices=CITY_CHOICES, null=True, blank=True)
     x_cord = models.FloatField(null=True, blank=True)
     y_cord = models.FloatField(null=True, blank=True)
     parsing_time = models.DateTimeField(auto_now_add=True, verbose_name="creation_time")

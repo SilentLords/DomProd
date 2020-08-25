@@ -7,7 +7,7 @@ import sys
 
 import scrapy
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd/'
 else:

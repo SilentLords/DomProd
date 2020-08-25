@@ -106,7 +106,7 @@ class IgnoreSerializer(serializers.Serializer):
                 id_list = []
                 for house in finish_list:
                     id_list.append(house.id)
-                houses = HouseModel.objects.filter(pk__in=id_list)
+                houses = HouseModel.objects.filter(pk__in=id_list).order_by('-id').filter(ready_to_go=True)
         return houses
 
 def get_online_users_count():

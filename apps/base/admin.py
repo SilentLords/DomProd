@@ -9,7 +9,7 @@ class ModelsAdmin(admin.ModelAdmin):
 class HouseAdmin(admin.ModelAdmin):
     list_display = ('id','house_id', 'title', 'price', 'house_info', 'Host','type')
     search_fields = ('title','house_id')
-    list_filter = ('Host',)
+    list_filter = ('Host','offer_type', 'type')
 
 
 admin.site.register(HouseModel, HouseAdmin)

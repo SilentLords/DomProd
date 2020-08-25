@@ -50,7 +50,7 @@ class N1V2Pipeline:
             HouseModel.objects.create(house_id=house_id_val, title=title_val, link=link_val,
                                       address=address_val, data=data_val, time=time_created_val,
                                       Host=host_val, title_image=img_val, price=price_val, city=city_val,
-                                      x_cord=x_cord_val, y_cord=y_cord_val, ready_to_go = True)
+                                      x_cord=x_cord_val, y_cord=y_cord_val, ready_to_go = True, offer_type =0)
 
     def save_info(self, item):
         house_id_val = int(item['house_id'])

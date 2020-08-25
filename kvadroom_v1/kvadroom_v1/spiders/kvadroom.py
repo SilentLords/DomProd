@@ -6,7 +6,7 @@ import re
 import scrapy
 import sys
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/DomProd'
 else:
@@ -69,7 +69,7 @@ class KvadroomSpider(scrapy.Spider):
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
-        'card_to_parse': 2,
+        'card_to_parse': 5,
         'card_selector': '.ci_3_col',
         'house_type_set': ['Вторичка', 'Коттеджи', 'Участки'],
         'ignore_selector': '.ci_3__owner__info > div::text',

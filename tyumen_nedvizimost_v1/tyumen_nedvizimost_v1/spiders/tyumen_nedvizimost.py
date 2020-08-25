@@ -77,7 +77,7 @@ class TyumenNedvizimostSpider(scrapy.Spider):
     ]
     start_urls = [urls_pool[0]]
     parsing_params = {
-        'card_to_parse': 2,
+        'card_to_parse': 10,
         'card_selector': '.a_blok5',
         'house_type_set': ['Вторичка', 'Коттеджи'],
         'ignore_selector': 'span.snippet-tag',
@@ -197,7 +197,10 @@ class TyumenNedvizimostSpider(scrapy.Spider):
             if re.search(r'Жилая площадь', name_of_field):
                 living_area = float(re.sub(r'[^0-9.]', '', value_of_field))
             if re.search(r'Площадь кухни', name_of_field):
-                kitchen_area = float(re.sub(r'[^0-9.]', '', value_of_field))
+                try:
+                    kitchen_area = float(re.sub(r'[^0-9.]', '', value_of_field))
+                except:
+                    kitchen_area = 0
             if re.search(r'Площадь дома', name_of_field):
                 total_area = float(re.sub(r'[^0-9.]', '', value_of_field))
             if re.search(r'Площадь участка', name_of_field):
@@ -205,6 +208,8 @@ class TyumenNedvizimostSpider(scrapy.Spider):
             if re.search(r'Площадь:', name_of_field):
                 land_area = float(re.sub(r'[^0-9.]', '', value_of_field.replace('сот.', '')))
         phone_num = get_phone_num(response.css(self.parsing_info_params['phone_selector']).get())
+        if phone_num == '7 нет данных':
+            phone_num = 0
         item = {
             'mode': 1,
             'house_id': house_id,

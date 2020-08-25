@@ -94,7 +94,7 @@ class MailV2Pipeline:
             HouseModel.objects.create(house_id=house_id, title=title_val, link=link_val, address=address_val,
                                       data=data_val, time=time_created_val, Host=host_val,
                                       title_image=img_val, price=price_val, city=city, x_cord=x_cord, type=item['type'],
-                                      y_cord=y_cord, ready_to_go = True)
+                                      y_cord=y_cord, ready_to_go = True,offer_type = 0)
 
     def save_info(self, item):
         # print(item['floor_count'])

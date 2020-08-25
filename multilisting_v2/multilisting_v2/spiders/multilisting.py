@@ -56,7 +56,7 @@ class MultilistingSpider(scrapy.Spider):
             if card.css('.yandex_adfox_action'):
                 cards.pop(cards.index(card))
         for card in cards:
-            if cards.index(card) < 1:
+            if cards.index(card) < 5:
                 city = 0
                 url = response.urljoin(card.css('.header_adv_short::attr(href)').get())
                 house_id = card.css('::attr(element_id)').get()

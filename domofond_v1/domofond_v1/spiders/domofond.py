@@ -68,7 +68,8 @@ class DomofondSpider(scrapy.Spider):
         'https://www.domofond.ru/prodazha-uchastkizemli-tyumen-c2547?PrivateListingType=PrivateOwner',
         'https://www.domofond.ru/prodazha-kommercheskay-nedvizhimost-tyumen-c2547?PrivateListingType=PrivateOwner&SortOrder=Newest',
         'https://www.domofond.ru/arenda-kvartiry-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest',
-        'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest']
+        'https://www.domofond.ru/arenda-doma-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest',
+        'https://www.domofond.ru/arenda-kommercheskay-nedvizhimost-tyumen-c2547?RentalRate=Month&PrivateListingType=PrivateOwner&SortOrder=Newest']
     types = ['Новостройки', 'Вторичка', 'Коттеджи', 'Участки', 'Коммерческаянедвижимость']
 
     def parse(self, response):
@@ -107,6 +108,8 @@ class DomofondSpider(scrapy.Spider):
         title_image = card.css('img.card-photo__image___31CHC::attr(src)').get()
         if 0 <= page_index < 5:
             type_ = self.types[self.urls_pool.index(response.url)]
+        elif page_index == 7:
+            type_ = self.types[self.urls_pool.index(response.url)-3]
         else:
             type_ = self.types[self.urls_pool.index(response.url) - 4]
         print('suka')
