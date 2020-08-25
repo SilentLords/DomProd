@@ -1,9 +1,11 @@
 import time
+
 DEBUG = False
 from django.utils import timezone
 from apps.users.models import User
 from rest_framework import serializers
 from .models import HouseModel, HouseInfo, Image
+
 #
 if not DEBUG:
     from shapely.geometry import Point
@@ -107,12 +109,21 @@ class IgnoreSerializer(serializers.Serializer):
                 for house in finish_list:
                     id_list.append(house.id)
                 houses = HouseModel.objects.filter(pk__in=id_list).order_by('-id').filter(ready_to_go=True)
+        if data['days_ago'] != 0:
+            id_list = []
+            for house in houses:
+                id_list.append(house.id)
+            ago_days = timezone.now() - timezone.timedelta(days=data['days_ago'])
+            houses = HouseModel.objects.filter(pk__in=id_list).filter(parsing_time__gte=ago_days).order_by('-id')
         return houses
+
 
 def get_online_users_count():
     ago5m = timezone.now() - timezone.timedelta(minutes=5)
     count = User.objects.filter(last_login__gte=ago5m).count()
     return count
+
+
 class AdvancedHouseSerializer(serializers.Serializer):
 
     def validate(self, data, queryset):
@@ -126,7 +137,8 @@ class AdvancedHouseSerializer(serializers.Serializer):
                 phone = house.house_info.phone
             else:
                 phone = 0
-            houses.append({"items": {'offer_type':house.offer_type, 'id': house.id, 'title': house.title, 'address': house.address,
+            houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
+                                     'address': house.address,
                                      'phone': phone, 'image_link': house.title_image,
                                      'host': house.Host,
                                      'link': house.link,
