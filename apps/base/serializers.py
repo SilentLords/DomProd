@@ -109,11 +109,11 @@ class IgnoreSerializer(serializers.Serializer):
                 for house in finish_list:
                     id_list.append(house.id)
                 houses = HouseModel.objects.filter(pk__in=id_list).order_by('-id').filter(ready_to_go=True)
-        if data['days_ago'] != 0:
+        if data.data['days_ago'] != 0:
             id_list = []
             for house in houses:
                 id_list.append(house.id)
-            ago_days = timezone.now() - timezone.timedelta(days=data['days_ago'])
+            ago_days = timezone.now() - timezone.timedelta(days=data.data['days_ago'])
             houses = HouseModel.objects.filter(pk__in=id_list).filter(parsing_time__gte=ago_days).order_by('-id')
         return houses
 
