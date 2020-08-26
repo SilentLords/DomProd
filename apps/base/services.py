@@ -1,4 +1,6 @@
 import json
+import os
+import shutil
 
 import requests as r
 import xmltodict
@@ -195,3 +197,25 @@ def get_jkh_info(address):
     }
     print(p)
     return p
+
+
+def create_archive_of_photos(photos, house_id):
+    DEBUG = False
+
+    if DEBUG:
+        path = 'C:/Users/TalisMan701/PycharmProjects/Domafound/'
+    else:
+        path = '/var/www/dom/src/'
+    try:
+        os.makedirs(path + f'media/photos/{house_id}')
+    except:
+        pass
+    for photo in photos:
+        downloaded_file = r.get(photo)
+
+        name_of_file = f'{path}media/photos/{house_id}/{photos.index(photo)}_{house_id}.jpg'
+        with open(name_of_file, 'wb') as file:
+            file.write(downloaded_file.content)
+
+    shutil.make_archive(f'{path}media/archives/{house_id}', 'zip', f'media/photos/{house_id}/')
+    return f'{path}media/archives/{house_id}.zip'

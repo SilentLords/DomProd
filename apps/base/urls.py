@@ -1,4 +1,5 @@
-from .views import Reparse, Gkh, House, GetListOfStreets, IgnoreList, FavList, WatchList, GetIgnore, GetFav, GetWatch, HouseListView
+from .views import Reparse, Gkh, House, GetListOfStreets, IgnoreList, FavList, WatchList, GetIgnore, GetFav, GetWatch, \
+    HouseListView, CreateClientSet, GetClientSet, CreatePhotoArhive
 from django.urls import path, include
 from domofound2.yasg import urlpatterns as doc_urls
 
@@ -13,5 +14,8 @@ urlpatterns = [
     path('fav/', FavList.as_view()),
     path('watch/', WatchList.as_view()),
     path('get_house/<int:pk>', House.as_view()),
-    path('get_jkh/<int:pk>', Gkh.as_view())
+    path('get_jkh/<int:pk>', Gkh.as_view()),
+    path('create_user_set/', CreateClientSet.as_view()),
+    path('get_user_set/', GetClientSet.as_view()),
+    path('get_archive/<int:pk>', CreatePhotoArhive.as_view())
 ]

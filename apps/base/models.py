@@ -57,4 +57,15 @@ class Image(models.Model):
 
     def __str__(self):
         return str(self.id) + str(self.house)
+
+
 # Create your models here.
+
+
+class ClientViewSet(models.Model):
+    set_id = models.CharField(max_length=200, unique=True)
+    house_set = models.ManyToManyField(HouseModel)
+    set_link = models.URLField(max_length=500, unique=True)
+
+    def __str__(self):
+        return f'Set by id: {self.set_id}, count of house: {self.house_set.count()}'

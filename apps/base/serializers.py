@@ -4,7 +4,7 @@ DEBUG = False
 from django.utils import timezone
 from apps.users.models import User
 from rest_framework import serializers
-from .models import HouseModel, HouseInfo, Image
+from .models import HouseModel, HouseInfo, Image, ClientViewSet
 
 #
 if not DEBUG:
@@ -137,15 +137,48 @@ class AdvancedHouseSerializer(serializers.Serializer):
                 phone = house.house_info.phone
             else:
                 phone = 0
-            houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
-                                     'address': house.address,
-                                     'phone': phone, 'image_link': house.title_image,
-                                     'host': house.Host,
-                                     'link': house.link,
-                                     'price': house.price,
-                                     'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
-                           'is_fav': house.fav_list.filter(id=user_id).exists(),
-                           'is_watched': house.watched_list.filter(id=user_id).exists()})
+            if data.data['is_fav']:
+                if house.fav_list.filter(id=user_id).exists():
+                    houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
+                                             'address': house.address,
+                                             'phone': phone, 'image_link': house.title_image,
+                                             'host': house.Host,
+                                             'link': house.link,
+                                             'price': house.price,
+                                             'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
+                                   'is_fav': house.fav_list.filter(id=user_id).exists(),
+                                   'is_watched': house.watched_list.filter(id=user_id).exists()})
+            else:
+                houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
+                                         'address': house.address,
+                                         'phone': phone, 'image_link': house.title_image,
+                                         'host': house.Host,
+                                         'link': house.link,
+                                         'price': house.price,
+                                         'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
+                               'is_fav': house.fav_list.filter(id=user_id).exists(),
+                               'is_watched': house.watched_list.filter(id=user_id).exists()})
         t2 = time.time()
         print(f'------Time:{-t1 + t2}------')
         return houses
+
+
+class ClientSetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClientViewSet
+        fields = ('__all__',)
+
+
+class ClientHouseInfo(serializers.ModelSerializer):
+    class Meta:
+        model = HouseModel
+        exclude = ('phone',)
+
+
+class ClientHouse(serializers.ModelSerializer):
+    image_set = ImageSerializer(many=True)
+    house_info = ClientHouseInfo(many=False)
+
+    class Meta:
+        model = HouseModel
+        exclude = ('x_cord', 'y_cord', 'ready_to_go', 'host', 'link')

@@ -1,11 +1,14 @@
+import string
+from random import random
+
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .services import get_jkh_info
+from .services import get_jkh_info, create_archive_of_photos
 from apps.users.models import User
 from .serializers import HouseSerializer, AdvancedHouseSerializer, UserSerializer, UserIgnore, UserWatch, UserFav, \
-    IgnoreSerializer
-from .models import HouseModel
+    IgnoreSerializer, ClientSetSerializer
+from .models import HouseModel, ClientViewSet
 from apps.base.utils import reparse
 from corsheaders import check_settings
 from django.conf import settings
@@ -17,8 +20,8 @@ check_settings(settings)
 
 CHOICES = (('1к', '1к'), ('2к', '2к'), ('3к', '3к'), ('4к', '4к'), ('5к', '5к+'), ('студии', 'студии'))
 CHOICES_TYPE = (
-('Вторичка', 'Вторичка'), ('Новостройки', 'Новостройки'), ('Коттеджи', "Коттеджи"), ('Участки', 'Участки'),
-('Коммерческаянедвижимость', 'Коммерческаянедвижимость'))
+    ('Вторичка', 'Вторичка'), ('Новостройки', 'Новостройки'), ('Коттеджи', "Коттеджи"), ('Участки', 'Участки'),
+    ('Коммерческаянедвижимость', 'Коммерческаянедвижимость'))
 OFFER_TYPE = (('Купить', 'Купить'), ('Аренда', 'Аренда'))
 
 
@@ -67,6 +70,12 @@ def get_user_and_house(request):
     user = User.objects.get(id=user_id)
     house = HouseModel.objects.filter(id=request.data['house_id'])
     return house, user
+
+
+def get_user(request):
+    user_id = UserSerializer(request.user).data['id']
+    user = User.objects.get(id=user_id)
+    return user
 
 
 # Create your views here.
@@ -254,3 +263,38 @@ class GetListOfStreets(APIView):
         with open('tymen_streets.txt', 'r') as f:
             streets = f.readlines()
         return Response({'status': True, "list": streets})
+
+
+class CreateClientSet(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request):
+        id_set = request.data['id_set']
+        rand_str = lambda n: ''.join([random.choice(string.ascii_lowercase) for i in range(n)])
+        set_id = rand_str(15)
+        client_set = ClientViewSet.objects.create(set_id=set_id, house_set=HouseModel.objects.filter(pk_in=id_set),
+                                                  set_link=f'https://domafound.ru/something/{set_id}')
+        return Response({'status': True, 'link_to_set': client_set.set_link})
+
+
+class GetClientSet(APIView):
+    permission_classes = (permissions.AllowAny,)
+    def post(self, request):
+        set_id = request.data['set_id']
+        client_set = ClientSetSerializer(set_id).data
+        return Response({'status': True, "data": client_set})
+
+
+
+class CreatePhotoArhive(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, pk):
+        photos = []
+        house = HouseModel.objects.get(house_id=pk)
+        photos_set = HouseSerializer(house).data['image_set']
+        for photo in photos_set:
+            photos.append(photo['image_link'])
+        print(photos)
+        file_path = create_archive_of_photos(photos, pk)
+        return Response({'file': file_path})
