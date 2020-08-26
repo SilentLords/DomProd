@@ -121,7 +121,7 @@ class IgnoreSerializer(serializers.Serializer):
             for house in houses:
                 if house.fav_list.filter(id=user_id).exists():
                     ids.append(house.id)
-            houses = HouseModel.objects.filter(pk__in = ids).order_by('-id')
+            houses = HouseModel.objects.filter(pk__in=ids).order_by('-id')
         return houses
 
 
@@ -145,23 +145,17 @@ class AdvancedHouseSerializer(serializers.Serializer):
             else:
                 phone = 0
             houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
-                                         'address': house.address,
-                                         'phone': phone, 'image_link': house.title_image,
-                                         'host': house.Host,
-                                         'link': house.link,
-                                         'price': house.price,
-                                         'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
-                               'is_fav': house.fav_list.filter(id=user_id).exists(),
-                               'is_watched': house.watched_list.filter(id=user_id).exists()})
+                                     'address': house.address,
+                                     'phone': phone, 'image_link': house.title_image,
+                                     'host': house.Host,
+                                     'link': house.link,
+                                     'price': house.price,
+                                     'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
+                           'is_fav': house.fav_list.filter(id=user_id).exists(),
+                           'is_watched': house.watched_list.filter(id=user_id).exists()})
         t2 = time.time()
         print(f'------Time:{-t1 + t2}------')
         return houses
-
-
-class ClientSetSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ClientViewSet
-        fields = ('__all__',)
 
 
 class ClientHouseInfo(serializers.ModelSerializer):
@@ -177,3 +171,11 @@ class ClientHouse(serializers.ModelSerializer):
     class Meta:
         model = HouseModel
         exclude = ('x_cord', 'y_cord', 'ready_to_go', 'host', 'link')
+
+
+class ClientSetSerializer(serializers.ModelSerializer):
+    house_set = ClientHouse(many=True)
+
+    class Meta:
+        model = ClientViewSet
+        fields = ('__all__',)
