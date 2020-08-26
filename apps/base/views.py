@@ -249,6 +249,7 @@ class HouseListView(ListAPIView):
 
         serializer = AdvancedHouseSerializer(self.request)
         final_context = serializer.validate(self.request, context)
+
         return paginator.get_paginated_response(final_context)
 
     def post(self, request, *args, **kwargs):

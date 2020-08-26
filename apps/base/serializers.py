@@ -115,6 +115,13 @@ class IgnoreSerializer(serializers.Serializer):
                 id_list.append(house.id)
             ago_days = timezone.now() - timezone.timedelta(days=data.data['days_ago'])
             houses = HouseModel.objects.filter(pk__in=id_list).filter(parsing_time__gte=ago_days).order_by('-id')
+        if data.data['is_fav']:
+            user_id = UserSerializer(data.user).data['id']
+            ids = []
+            for house in houses:
+                if house.fav_list.filter(id=user_id).exists():
+                    ids.append(house.id)
+            houses = HouseModel.objects.filter(pk__in = ids).order_by('-id')
         return houses
 
 
@@ -137,19 +144,7 @@ class AdvancedHouseSerializer(serializers.Serializer):
                 phone = house.house_info.phone
             else:
                 phone = 0
-            if data.data['is_fav']:
-                if house.fav_list.filter(id=user_id).exists():
-                    houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
-                                             'address': house.address,
-                                             'phone': phone, 'image_link': house.title_image,
-                                             'host': house.Host,
-                                             'link': house.link,
-                                             'price': house.price,
-                                             'time': house.parsing_time, 'ready_to_go': house.ready_to_go},
-                                   'is_fav': house.fav_list.filter(id=user_id).exists(),
-                                   'is_watched': house.watched_list.filter(id=user_id).exists()})
-            else:
-                houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
+            houses.append({"items": {'offer_type': house.offer_type, 'id': house.id, 'title': house.title,
                                          'address': house.address,
                                          'phone': phone, 'image_link': house.title_image,
                                          'host': house.Host,
