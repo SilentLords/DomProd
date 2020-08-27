@@ -111,6 +111,15 @@ class House(APIView):
                          'is_watch': house.watched_list.filter(id=user_id).exists()})
 
 
+class HouseClient(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, pk):
+        house = HouseModel.objects.get(id=pk)
+        serializer = HouseSerializer(house, many=False)
+        return Response({'house': serializer.data})
+
+
 class Gkh(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
@@ -302,6 +311,8 @@ class CreatePhotoArhive(APIView):
         print(photos)
         file_path = create_archive_of_photos(photos, pk)
         return Response({'file': file_path})
+
+
 class HouseClient(APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
