@@ -1,6 +1,5 @@
 import string
-from random import random
-
+from random import random, choice
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -271,10 +270,13 @@ class CreateClientSet(APIView):
 
     def post(self, request):
         id_set = request.data['id_set']
-        rand_str = lambda n: ''.join([random.choice(string.ascii_lowercase) for i in range(n)])
+        rand_str = lambda n: ''.join([choice(string.ascii_lowercase) for i in range(n)])
         set_id = rand_str(15)
-        client_set = ClientViewSet.objects.create(set_id=set_id, house_set=HouseModel.objects.filter(pk_in=id_set),
+        house_set = HouseModel.objects.filter(pk__in=id_set)
+        client_set = ClientViewSet.objects.create(set_id=set_id,
                                                   set_link=f'https://domafound.ru/something/{set_id}')
+        client_set.house_set.add(*house_set)
+        client_set.save()
         return Response({'status': True, 'link_to_set': client_set.set_link})
 
 

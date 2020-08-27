@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HouseModel, HouseInfo, Image
+from .models import HouseModel, HouseInfo, Image, ClientViewSet
 
 
 class ModelsAdmin(admin.ModelAdmin):
@@ -14,4 +14,5 @@ class HouseAdmin(admin.ModelAdmin):
 
 admin.site.register(HouseModel, HouseAdmin)
 admin.site.register(HouseInfo, ModelsAdmin)
+admin.site.register(ClientViewSet, ModelsAdmin)
 admin.site.register(Image, ModelsAdmin)
