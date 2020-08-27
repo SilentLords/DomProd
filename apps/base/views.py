@@ -282,11 +282,12 @@ class CreateClientSet(APIView):
 
 class GetClientSet(APIView):
     permission_classes = (permissions.AllowAny,)
+
     def post(self, request):
         set_id = request.data['set_id']
-        client_set = ClientSetSerializer(set_id).data
+        id_of_set = ClientViewSet.objects.get(set_id=set_id)
+        client_set = ClientSetSerializer(id_of_set).data
         return Response({'status': True, "data": client_set})
-
 
 
 class CreatePhotoArhive(APIView):
@@ -301,3 +302,10 @@ class CreatePhotoArhive(APIView):
         print(photos)
         file_path = create_archive_of_photos(photos, pk)
         return Response({'file': file_path})
+class HouseClient(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, pk):
+        house = HouseModel.objects.get(id=pk)
+        serializer = HouseSerializer(house, many=False)
+        return Response({'house': serializer.data})

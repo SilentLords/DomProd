@@ -158,19 +158,18 @@ class AdvancedHouseSerializer(serializers.Serializer):
         return houses
 
 
-class ClientHouseInfo(serializers.ModelSerializer):
-    class Meta:
-        model = HouseModel
-        exclude = ('phone',)
+class HouseInfoClient(serializers.ModelSerializer):
+    class Meta():
+        model = HouseInfo
+        fields = '__all__'
 
 
 class ClientHouse(serializers.ModelSerializer):
     image_set = ImageSerializer(many=True)
-    house_info = ClientHouseInfo(many=False)
-
+    # house_info = HouseInfoClient()
     class Meta:
         model = HouseModel
-        exclude = ('x_cord', 'y_cord', 'ready_to_go', 'host', 'link')
+        exclude = ('x_cord', 'y_cord', 'ready_to_go', 'Host', 'link','house_info')
 
 
 class ClientSetSerializer(serializers.ModelSerializer):
@@ -178,4 +177,4 @@ class ClientSetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClientViewSet
-        fields = ('__all__',)
+        fields = ('house_set',)
