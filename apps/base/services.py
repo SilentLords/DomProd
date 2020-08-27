@@ -217,5 +217,5 @@ def create_archive_of_photos(photos, house_id):
         with open(name_of_file, 'wb') as file:
             file.write(downloaded_file.content)
 
-    shutil.make_archive(f'{path}media/archives/{house_id}', 'zip', f'media/photos/{house_id}/')
-    return f'{path}media/archives/{house_id}.zip'
+    shutil.make_archive(f'{path}media/{house_id}', 'zip', f'media/photos/{house_id}/')
+    return f'https://api-domafound.ru/media/{house_id}.zip'

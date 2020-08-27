@@ -274,7 +274,7 @@ class CreateClientSet(APIView):
         set_id = rand_str(15)
         house_set = HouseModel.objects.filter(pk__in=id_set)
         client_set = ClientViewSet.objects.create(set_id=set_id,
-                                                  set_link=f'https://domafound.ru/something/{set_id}')
+                                                  set_link=f'https://domafound.ru/property_for_client/{set_id}')
         client_set.house_set.add(*house_set)
         client_set.save()
         return Response({'status': True, 'link_to_set': client_set.set_link})
