@@ -174,7 +174,7 @@ class AvitoSpider(scrapy.Spider):
             image_set = response.css(self.parsing_info_params['image_set_selector'])
             images = []
             for image in image_set: images.append(
-                f'https:{image.css(self.parsing_info_params["image_data_selector"]).get()}')
+                f'{image.css(self.parsing_info_params["image_data_selector"]).get()}')
             if response.css(self.parsing_info_params['data_selectors'][0][0]):
                 data = ''.join(response.css(self.parsing_info_params['data_selectors'][0][1]).getall())
             if response.css(self.parsing_info_params['data_selectors'][1][0]):
