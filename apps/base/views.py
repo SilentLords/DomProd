@@ -313,10 +313,3 @@ class CreatePhotoArhive(APIView):
         return Response({'file': file_path})
 
 
-class HouseClient(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
-
-    def get(self, request, pk):
-        house = HouseModel.objects.get(id=pk)
-        serializer = HouseSerializer(house, many=False)
-        return Response({'house': serializer.data})
