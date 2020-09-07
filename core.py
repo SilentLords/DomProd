@@ -1,5 +1,5 @@
 import re
-
+from PIL import Image
 import requests as r
 import json
 import django
@@ -19,9 +19,23 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'domofound2.settings'
 django.setup()
 from apps.base.models import HouseModel, HouseInfo, Image
 
+from io import BytesIO
+
+
+def crop_images(image, index):
+    image = BytesIO(image)
+    my_image = Image.open(image)
+    my_image.load()
+    x, y = my_image.size[0], my_image.size[1]
+    new_img = my_image.crop((0, 0, x, y - 50))
+    new_img.save(f'/var/www/dom/src/media/{index}.jpg')
+    return f'https://api-domafound.ru/media/{index}.jpg'
+
 
 def store_images(house, images):
     for image in images:
+        if house.host == 'avito.ru':
+            image = crop_images(image, images.index(image))
         Image.objects.create(image_link=image, house=house)
 
 
