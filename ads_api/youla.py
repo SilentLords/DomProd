@@ -1,7 +1,10 @@
 import sys
 
-from services import PATH_TO_DJANGO
-
+DEBUG = False
+if DEBUG:
+    PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/domofound2/'
+else:
+    PATH_TO_DJANGO = '/var/www/dom/src/'
 sys.path.append(PATH_TO_DJANGO)
 from core import Core
 

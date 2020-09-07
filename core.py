@@ -6,15 +6,16 @@ import django
 import os
 import sys
 import time
-from services import get_cord
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/domofound2/'
 else:
     PATH_TO_DJANGO = '/var/www/dom/src/'
-
 sys.path.append(PATH_TO_DJANGO)
+
+from services import get_cord
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'domofound2.settings'
 django.setup()
 from apps.base.models import HouseModel, HouseInfo, Image
@@ -267,4 +268,4 @@ class Core:
         for offer_type in OFFERS_SET:
             for category in self.category_set:
                 self.get_data_feed(self.host_id, self.limit, self.city, category, offer_type + 1)
-                time.sleep(3)
+                time.sleep(5)
