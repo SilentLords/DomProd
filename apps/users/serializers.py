@@ -69,7 +69,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = (
             'id', 'phone', 'email', 'is_subscribe', 'subscribe_days_count', 'watched_list', 'fav_list', 'ignore_list',
-            'subscribe_hours_count', 'is_partner', 'user_set', 'referral_code')
+            'subscribe_hours_count', 'is_partner', 'user_set', 'referral_code', 'commission_percentage',
+            'commission_surcharge')
 
 
 #

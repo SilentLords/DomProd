@@ -359,6 +359,18 @@ class CreatePayment(APIView):
         Payment.objects.create(user=user, payment_id=p_id, days=days)
         return Response({'status': True, 'url': url})
 
+class SetCommission(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request):
+        user_id = UserSerializer(request.user).data['id']
+        user = User.objects.get(id=user_id)
+        user.commission_percentage = int(request.data['percentage'])
+        user.commission_surcharge = int(request.data['surcharge'])
+        user.save()
+        return Response({'status': True})
+
+
 
 class PaymentSuccess(APIView):
     permission_classes = (permissions.IsAuthenticated,)

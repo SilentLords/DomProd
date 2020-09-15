@@ -93,6 +93,10 @@ class User(AbstractBaseUser):
     all_discount_count = models.IntegerField(default=0, validators=[
         MinValueValidator(0),
         MaxValueValidator(100)])
+    commission_percentage = models.IntegerField(default=0, validators=[
+        MinValueValidator(0),
+        MaxValueValidator(100)])
+    commission_surcharge = models.IntegerField(default=0)
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = ['email']
     objects = MyUserManager()
