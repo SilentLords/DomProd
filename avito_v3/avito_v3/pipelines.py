@@ -5,8 +5,11 @@ import re
 import scrapy
 import sys
 import requests as r
+from io import BytesIO
+import os
+import sys
 
-DEBUG = True
+DEBUG = False
 if DEBUG:
     PATH_TO_DJANGO = '/Users/nikitatonkoskurov/PycharmProjects/domofound2/'
 else:
@@ -17,16 +20,27 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'domofound2.settings'
 django.setup()
 from apps.base.models import HouseModel, HouseInfo, Image
 
+from PIL import Image as pilImage
 
-def store_images(house_id_val, images):
-    house_id = HouseModel.objects.filter(house_id=house_id_val)
-    if house_id:
-        house = HouseModel.objects.get(house_id=house_id_val)
-        for image in images:
-            Image.objects.create(image_link=image, house=house)
-    else:
-        print('Cant find house with this house_id')
+def crop_images(image, index,house_id):
+    d_file = r.get(image)
+    image = BytesIO(d_file.content)
+    my_image = pilImage.open(image)
+    my_image.load()
+    x, y = my_image.size[0], my_image.size[1]
+    new_img = my_image.crop((0, 0, x, y - 50))
+    new_img.save(f'/var/www/dom/src/media/{house_id}_{index}.jpg')
+    return f'https://api-domafound.ru/media/{house_id}_{index}.jpg'
 
+
+def store_images(house, images):
+    for image in images:
+        temp_img = image
+        image = crop_images(image, images.index(image),house.house_id)
+        if images.index(temp_img) == 0:
+            house.title_image = image
+            house.save()
+        Image.objects.create(image_link=image, house=house)
 
 class AvitoV3Pipeline:
     key = 'af0deccbgcgidddjgnvljitntccdduijhdinfgjgfjir'

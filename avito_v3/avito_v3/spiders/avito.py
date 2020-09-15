@@ -112,11 +112,9 @@ class AvitoSpider(scrapy.Spider):
                 house_link = response.urljoin(card.css(self.parsing_params['link_selector']).get())
                 house_id = get_house_id(house_link)
                 title = card.css(self.parsing_params['title_selector']).get()
-                if check_db(house_id, title):
-                    _ = yield from self.parse_card(card, type_of_house, house_id, house_link, page_index)
-                    yield scrapy.Request(url=house_link, callback=self.parse_info)
-                else:
-                    print('This house is already exist')
+
+                _ = yield from self.parse_card(card, type_of_house, house_id, house_link, page_index)
+                yield scrapy.Request(url=house_link, callback=self.parse_info)
         if page_index < self.urls_pool.__len__() - 1:
             yield scrapy.Request(self.urls_pool[page_index + 1], callback=self.parse)
 

@@ -1,5 +1,5 @@
 import re
-from PIL import Image
+from PIL import Image as pilImage
 import requests as r
 import json
 import django
@@ -23,20 +23,25 @@ from apps.base.models import HouseModel, HouseInfo, Image
 from io import BytesIO
 
 
-def crop_images(image, index):
-    image = BytesIO(image)
-    my_image = Image.open(image)
+def crop_images(image, index,house_id):
+    d_file = r.get(image)
+    image = BytesIO(d_file.content)
+    my_image = pilImage.open(image)
     my_image.load()
     x, y = my_image.size[0], my_image.size[1]
     new_img = my_image.crop((0, 0, x, y - 50))
-    new_img.save(f'/var/www/dom/src/media/{index}.jpg')
-    return f'https://api-domafound.ru/media/{index}.jpg'
+    new_img.save(f'/var/www/dom/src/media/{house_id}_{index}.jpg')
+    return f'https://api-domafound.ru/media/{house_id}_{index}.jpg'
 
 
 def store_images(house, images):
     for image in images:
-        if house.host == 'avito.ru':
-            image = crop_images(image, images.index(image))
+        if house.Host == 'avito.ru':
+            temp_img = image
+            image = crop_images(image, images.index(image),house.house_id)
+            if images.index(temp_img) == 0:
+                house.title_image = image
+                house.save()
         Image.objects.create(image_link=image, house=house)
 
 
@@ -62,7 +67,6 @@ class Core:
         response = r.get(url)
         result = json.loads(response.content)['data']
         for res in result:
-            print(res)
             final_res = self.correct(res, category, offer_type - 1)
             self.save_data(final_res)
         return result
@@ -228,7 +232,6 @@ class Core:
                 'price': price, 'cords': cords, 'title': title, 'description': description, "host": host,
                 'phone': phone, 'title_image': title_image, 'link': link, 'offer_type': offer_type,
                 'house_id': house_id}
-        print(data)
 
         return data
 
@@ -250,14 +253,13 @@ class Core:
         return num_of_rooms
 
     def save_data(self, data):
-        print(json.dumps(data, sort_keys=True, indent=4))
         try:
             house = HouseModel.objects.filter(house_id=data['house_id'])
         except:
             data['house_id'] = re.sub(r'[^0-9]', '', data['house_id'])
 
             house = HouseModel.objects.filter(house_id=data['house_id'])
-        if not house:
+        if not house and not HouseModel.objects.filter(house_info__phone=data['phone']):
             house_info = HouseInfo.objects.create(house_id=data['house_id'],
                                                   type_of_participation='',
                                                   official_builder='',
