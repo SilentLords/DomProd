@@ -118,10 +118,12 @@ class IgnoreSerializer(serializers.Serializer):
         if data.data['is_fav']:
             user_id = UserSerializer(data.user).data['id']
             ids = []
+            a = time.time()
             for house in houses:
                 if house.fav_list.filter(id=user_id).exists():
                     ids.append(house.id)
             houses = HouseModel.objects.filter(pk__in=ids).order_by('-id')
+            print((a - time.time()) / 60)
         return houses
 
 
@@ -166,10 +168,11 @@ class HouseInfoClient(serializers.ModelSerializer):
 
 class ClientHouse(serializers.ModelSerializer):
     image_set = ImageSerializer(many=True)
+
     # house_info = HouseInfoClient()
     class Meta:
         model = HouseModel
-        exclude = ('x_cord', 'y_cord', 'ready_to_go', 'Host', 'link','house_info')
+        exclude = ('x_cord', 'y_cord', 'ready_to_go', 'Host', 'link', 'house_info')
 
 
 class ClientSetSerializer(serializers.ModelSerializer):
@@ -177,4 +180,4 @@ class ClientSetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ClientViewSet
-        fields = ('house_set',)
+        fields = ('house_set', 'agent_commission_percentage', 'agent_commission_surcharge',)

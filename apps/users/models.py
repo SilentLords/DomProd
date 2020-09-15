@@ -80,9 +80,9 @@ class User(AbstractBaseUser):
         MinValueValidator(0),
         MaxValueValidator(24)
     ])
-    watched_list = models.ManyToManyField(HouseModel, related_name='watched_list', blank=True, null=True)
-    fav_list = models.ManyToManyField(HouseModel, related_name='fav_list', blank=True, null=True)
-    ignore_list = models.ManyToManyField(HouseModel, related_name='ignore_list', blank=True, null=True)
+    watched_list = models.ManyToManyField(HouseModel, related_name='watched_list', blank=True)
+    fav_list = models.ManyToManyField(HouseModel, related_name='fav_list', blank=True)
+    ignore_list = models.ManyToManyField(HouseModel, related_name='ignore_list', blank=True)
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)

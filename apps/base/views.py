@@ -244,6 +244,7 @@ class HouseListView(ListAPIView):
 
     def get_queryset(self):
         ignore_ser = IgnoreSerializer(data=self.request)
+        print(self.request.data['polygon_cords'])
         if self.request.data['polygon_cords'] != 0:
             queryset = ignore_ser.validate(data=self.request, polygon_cords=self.request.data['polygon_cords'])
         else:
@@ -279,11 +280,14 @@ class CreateClientSet(APIView):
 
     def post(self, request):
         id_set = request.data['id_set']
+        user = get_user(request)
         rand_str = lambda n: ''.join([choice(string.ascii_lowercase) for i in range(n)])
         set_id = rand_str(15)
         house_set = HouseModel.objects.filter(pk__in=id_set)
         client_set = ClientViewSet.objects.create(set_id=set_id,
-                                                  set_link=f'https://domafound.ru/property_for_client/{set_id}')
+                                                  set_link=f'https://domafound.ru/property_for_client/{set_id}',
+                                                  agent_commission_percentage=user.commission_percentage,
+                                                  agent_commission_surcharge=user.commission_surcharge)
         client_set.house_set.add(*house_set)
         client_set.save()
         return Response({'status': True, 'link_to_set': client_set.set_link})
@@ -311,5 +315,3 @@ class CreatePhotoArhive(APIView):
         print(photos)
         file_path = create_archive_of_photos(photos, pk)
         return Response({'file': file_path})
-
-
